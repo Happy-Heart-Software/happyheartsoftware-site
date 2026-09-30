@@ -228,7 +228,7 @@ APPS = {
 
     <h2>How long we keep it</h2>
     <ul>
-      <li>Your books are kept until they're deleted. When you delete a book in Quire, it's moved to a trash folder rather than erased straight away, so it can be recovered if deleted by mistake.</li>
+      <li>Your books are kept until they're deleted. When you delete a book in Quire, it's moved to a trash folder rather than erased straight away, so it can be recovered if deleted by mistake. Books in the trash are permanently deleted after 30 days. Copies in our nightly backups disappear within 14 days after that.</li>
       <li>We make a backup of Quire every night and keep each one for 14 days.</li>
       <li>If your account is removed, your sign-in details are deleted, but your books are kept unless you ask us to delete them.</li>
     </ul>
