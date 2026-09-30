@@ -68,6 +68,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   #apps{margin:56px 16px 0!important}
   #about{flex-direction:column!important;align-items:stretch!important;margin:56px 16px 0!important;padding:36px 22px!important;gap:32px!important}
   #about>div:last-child{width:auto!important}
+  #services{margin:56px 16px 0!important;padding:36px 22px!important;gap:36px!important}
+  #services h2{font-size:36px!important}
+  #services>div:first-child{flex-direction:column;align-items:flex-start!important;gap:20px!important}
+  #services>div:nth-child(2){grid-template-columns:repeat(2,minmax(0,1fr))!important}
+  #services>div:nth-child(3){grid-template-columns:1fr!important;gap:40px!important}
   #about h2{font-size:36px!important}
   #apps h2{font-size:36px!important}
   #apps>div:first-child{flex-direction:column;align-items:flex-start!important;gap:16px!important}
@@ -95,6 +100,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .hh-badge{transform:scale(.82);transform-origin:left center}
   #hh-panel>svg{display:none}
   #apps>div:last-child{grid-template-columns:1fr!important}
+  #services>div:nth-child(2){grid-template-columns:1fr!important}
 }
 </style>
 </head>
@@ -107,7 +113,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <span style="font-family: Fredoka, system-ui, sans-serif; font-size: 25px; font-weight: 600">Happy Heart Software</span>
     </a>
     <nav style="display: flex; align-items: center; gap: 36px; font-size: 16px; font-weight: 600">
-      <a href="#goal" style="color: #FFFFFF; text-decoration: none">How we help</a><a href="#apps" style="color: #FFFFFF; text-decoration: none">Our apps</a><a href="#why" style="color: #FFFFFF; text-decoration: none">Why us</a><a href="#about" style="color: #FFFFFF; text-decoration: none">About</a>
+      <a href="#goal" style="color: #FFFFFF; text-decoration: none">How we help</a><a href="#apps" style="color: #FFFFFF; text-decoration: none">Our apps</a><a href="#why" style="color: #FFFFFF; text-decoration: none">Why us</a><a href="#services" style="color: #FFFFFF; text-decoration: none">Services</a><a href="#about" style="color: #FFFFFF; text-decoration: none">About</a>
       <a href="#start" class="hh-shift" style="padding: 14px 26px; border-radius: 999px; background-image: linear-gradient(90deg, #FF3CAC, #FF8A00, #FFD23F, #34D399, #22D3EE, #7C3AED, #FF3CAC); color: #150A2E; text-decoration: none; font-weight: 800; box-shadow: 0 8px 24px rgba(255,60,172,0.35)">Start a project</a>
     </nav>
   </header>
@@ -281,12 +287,56 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 50px; line-height: 1.08; font-weight: 700; letter-spacing: -1.4px">About us</h2>
       <p style="margin: 0; font-size: 18px; line-height: 1.65; color: #DDD7EA">Happy Heart Software is a small, independent software studio based in Ohio. We make simple, focused apps for the everyday parts of life: keeping track of money, getting your creative work out into the world, looking after your body and mind, and having a little fun.</p>
       <p style="margin: 0; font-size: 18px; line-height: 1.65; color: #DDD7EA">We think good software should feel like a helpful friend, not another chore. So every app starts with one question: what's the next small step you actually need to take? Then we build just that, in plain language, and leave out the rest.</p>
-      <p style="margin: 0; font-size: 18px; line-height: 1.65; color: #DDD7EA">We also build custom software for small businesses and creators. If you have an idea, or a problem that software could make easier, we'd love to hear about it. <a href="#start" style="color: #F3D98B; font-weight: 700">Start a conversation</a></p>
+      <p style="margin: 0; font-size: 18px; line-height: 1.65; color: #DDD7EA">We also build custom software and websites for small businesses, creators, nonprofits and individuals. <a href="#services" style="color: #F3D98B; font-weight: 700">See how we can help</a></p>
     </div>
     <div style="width: 300px; flex-shrink: 0; display: flex; flex-direction: column; gap: 16px">
       <div style="padding: 24px 28px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14)"><div style="font-family: Sora, sans-serif; font-size: 40px; font-weight: 700; color: #6EE08F">7</div><div style="font-size: 16px; color: #DDD7EA">apps live today</div></div>
       <div style="padding: 24px 28px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14)"><div style="font-family: Sora, sans-serif; font-size: 40px; font-weight: 700; color: #FFB23F">4</div><div style="font-size: 16px; color: #DDD7EA">areas of everyday life: money, create, wellness and play</div></div>
       <div style="padding: 24px 28px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14)"><div style="font-family: Sora, sans-serif; font-size: 40px; font-weight: 700; color: #4FB3FF">Ohio</div><div style="font-size: 16px; color: #DDD7EA">independent and based in the USA</div></div>
+    </div>
+  </section>
+
+  <section id="services" style="box-sizing: border-box; margin: 80px 96px 0; padding: 72px; border-radius: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); color: #FFFFFF; display: flex; flex-direction: column; gap: 48px">
+    <div style="display: flex; justify-content: space-between; align-items: flex-end; gap: 48px">
+      <div style="display: flex; flex-direction: column; gap: 20px">
+        <svg width="131" height="12" viewBox="0 0 131 12" aria-hidden="true"><rect x="0" y="0" width="12" height="12" rx="2.2" fill="hsl(166 86% 57%)"></rect><rect x="17" y="0" width="12" height="12" rx="2.2" fill="hsl(207 86% 57%)"></rect><rect x="34" y="0" width="12" height="12" rx="2.2" fill="hsl(249 86% 57%)"></rect><rect x="51" y="0" width="12" height="12" rx="2.2" fill="hsl(290 86% 57%)"></rect><rect x="68" y="0" width="12" height="12" rx="2.2" fill="hsl(0 86% 57%)"></rect><rect x="85" y="0" width="12" height="12" rx="2.2" fill="hsl(41 86% 57%)"></rect><rect x="102" y="0" width="12" height="12" rx="2.2" fill="hsl(83 86% 57%)"></rect><rect x="119" y="0" width="12" height="12" rx="2.2" fill="hsl(124 86% 57%)"></rect></svg>
+        <h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 50px; line-height: 1.08; font-weight: 700; letter-spacing: -1.4px">Custom software, made for you</h2>
+      </div>
+      <p style="margin: 0; max-width: 500px; font-size: 18px; line-height: 1.6; color: #DDD7EA">The same common sense that goes into our apps, built around your idea. Simple to use, easy to look after, and explained in plain language.</p>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px">
+      <div style="padding: 28px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 12px">
+        <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><rect x="5" y="8" width="38" height="30" rx="4" stroke="#6EE08F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></rect><path d="M5 16 H43" stroke="#6EE08F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path><path d="M18 24 l-5 4 5 4 M30 24 l5 4 -5 4" stroke="#6EE08F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>
+        <h3 style="margin: 0; font-size: 20px; font-weight: 700">Web apps</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #DDD7EA">Tools that run in any browser, on phones and computers, shaped around how you actually work.</p>
+      </div>
+      <div style="padding: 28px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 12px">
+        <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="18" stroke="#FFB23F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></circle><path d="M6 24 H42 M24 6 C16 16 16 32 24 42 M24 6 C32 16 32 32 24 42" stroke="#FFB23F" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>
+        <h3 style="margin: 0; font-size: 20px; font-weight: 700">Websites</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #DDD7EA">Clear, friendly sites that tell people who you are and make it easy to get in touch.</p>
+      </div>
+      <div style="padding: 28px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 12px">
+        <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M26 5 L12 27 H24 L22 43 L36 21 H24 Z" stroke="#4FB3FF" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>
+        <h3 style="margin: 0; font-size: 20px; font-weight: 700">Automations</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #DDD7EA">Connect the tools you already use, like forms, spreadsheets and email, so the busywork runs itself.</p>
+      </div>
+      <div style="padding: 28px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 12px">
+        <svg width="48" height="48" viewBox="0 0 48 48" aria-hidden="true"><path d="M29 9 a9 9 0 0 0 -11 11 L7 31 a4 4 0 0 0 6 6 L24 26 a9 9 0 0 0 11 -11 l-6 6 -5 -1 -1 -5 Z" stroke="#F3D98B" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"></path></svg>
+        <h3 style="margin: 0; font-size: 20px; font-weight: 700">Fixes and updates</h3>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #DDD7EA">Already have software that's slow, broken or out of date? We can tidy it up and keep it running.</p>
+      </div>
+    </div>
+    <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; align-items: start">
+      <div style="display: flex; flex-direction: column; gap: 18px">
+        <h3 style="margin: 0; font-size: 22px; font-weight: 700">Who we work with</h3>
+        <div style="display: flex; flex-wrap: wrap; gap: 10px"><span style="padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); font-size: 15px; font-weight: 600">Small businesses</span><span style="padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); font-size: 15px; font-weight: 600">Creators and authors</span><span style="padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); font-size: 15px; font-weight: 600">Nonprofits and community groups</span><span style="padding: 8px 16px; border-radius: 999px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14); font-size: 15px; font-weight: 600">Individuals</span></div>
+        <p style="margin: 0; font-size: 16px; line-height: 1.6; color: #DDD7EA">Big or small, if software could make something easier for you, we'd like to hear about it.</p>
+        <a href="#custom" class="hh-shift" style="align-self: flex-start; margin-top: 8px; padding: 16px 28px; border-radius: 999px; background-image: linear-gradient(90deg, #FF3CAC, #FF8A00, #FFD23F, #34D399, #22D3EE, #7C3AED, #FF3CAC); color: #150A2E; text-decoration: none; font-weight: 800; white-space: nowrap">Tell us your idea →</a>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 22px">
+        <h3 style="margin: 0; font-size: 22px; font-weight: 700">How it works</h3>
+        <div style="display: flex; gap: 16px; align-items: flex-start"><span style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px; background: #6EE08F; color: #150A2E; font-family: Sora, sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center">1</span><div><div style="font-size: 18px; font-weight: 700; margin-bottom: 4px">A free first chat</div><div style="font-size: 16px; line-height: 1.6; color: #DDD7EA">Tell us what you need. No jargon and no obligation.</div></div></div><div style="display: flex; gap: 16px; align-items: flex-start"><span style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px; background: #FFB23F; color: #150A2E; font-family: Sora, sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center">2</span><div><div style="font-size: 18px; font-weight: 700; margin-bottom: 4px">A clear quote</div><div style="font-size: 16px; line-height: 1.6; color: #DDD7EA">We explain what we'd build, how long it takes and what it costs, in plain language.</div></div></div><div style="display: flex; gap: 16px; align-items: flex-start"><span style="flex-shrink: 0; width: 40px; height: 40px; border-radius: 12px; background: #4FB3FF; color: #150A2E; font-family: Sora, sans-serif; font-weight: 700; font-size: 18px; display: flex; align-items: center; justify-content: center">3</span><div><div style="font-size: 18px; font-weight: 700; margin-bottom: 4px">Built with you, step by step</div><div style="font-size: 16px; line-height: 1.6; color: #DDD7EA">You see progress along the way and nothing is a surprise.</div></div></div>
+      </div>
     </div>
   </section>
 
@@ -319,7 +369,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <label for="hh-type" style="font-size: 15px; font-weight: 700">What's this about?</label>
         <select id="hh-type" name="topic" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.06); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #FFFFFF">
           <option>A new project</option>
-          <option>Custom software for my business</option>
+          <option>Custom software or a website</option>
           <option>Partnership or collaboration</option>
           <option>Something else</option>
           <option>One of your apps</option>
@@ -353,6 +403,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-direction: column; gap: 12px">
           <span style="font-weight: 700">Company</span>
           <a href="#about" style="color: #C9C4DA; text-decoration: none">About us</a>
+          <a href="#services" style="color: #C9C4DA; text-decoration: none">Custom software</a>
           <a href="#start" style="color: #C9C4DA; text-decoration: none">Contact</a>
         </div>
         <div style="display: flex; flex-direction: column; gap: 12px">
@@ -521,16 +572,18 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   }
 })();
 
-/* "Get help" links (#help) open the contact form with "One of your apps" chosen */
+/* #help and #custom links open the contact form with a topic chosen */
 (function () {
-  function openHelp() {
-    if (location.hash !== '#help') return;
-    document.getElementById('hh-type').value = 'One of your apps';
+  var TOPICS = { '#help': 'One of your apps', '#custom': 'Custom software or a website' };
+  function openForm() {
+    var topic = TOPICS[location.hash];
+    if (!topic) return;
+    document.getElementById('hh-type').value = topic;
     document.getElementById('start').scrollIntoView();
     document.getElementById('hh-name').focus({ preventScroll: true });
   }
-  window.addEventListener('hashchange', openHelp);
-  openHelp();
+  window.addEventListener('hashchange', openForm);
+  openForm();
 })();
 </script>
 </body>
