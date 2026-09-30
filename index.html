@@ -137,7 +137,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           </div>
       </div>
       <div style="flex-grow: 1"></div>
-      <a href="#goal" class="hh-shift" style="align-self: flex-start; padding: 18px 30px; border-radius: 999px; border: none; background-image: linear-gradient(90deg, #FF3CAC, #FF8A00, #FFD23F, #34D399, #22D3EE, #7C3AED, #FF3CAC); color: #150A2E; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: 0 14px 34px rgba(124,58,237,0.35), inset 0 2px 0 rgba(255,255,255,0.6)" id="hh-cta">Talk to us →</a>
+      <a href="#start" class="hh-shift" style="align-self: flex-start; padding: 18px 30px; border-radius: 999px; border: none; background-image: linear-gradient(90deg, #FF3CAC, #FF8A00, #FFD23F, #34D399, #22D3EE, #7C3AED, #FF3CAC); color: #150A2E; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: 0 14px 34px rgba(124,58,237,0.35), inset 0 2px 0 rgba(255,255,255,0.6)" id="hh-cta">Talk to us →</a>
     </div>
   </section>
 
@@ -182,6 +182,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <input type="hidden" name="access_key" value="60a61b0e-03c3-462c-8980-87ae9d6b668f">
       <input type="hidden" name="subject" value="New message from happyheartsoftware.com">
       <input type="hidden" name="from_name" value="Happy Heart Software website">
+      <input type="hidden" name="interest" id="hh-interest" value="">
       <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
       <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px">
         <div style="display: flex; flex-direction: column; gap: 8px">
@@ -200,6 +201,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           <option>Custom software for my business</option>
           <option>Partnership or collaboration</option>
           <option>Something else</option>
+          <option>One of your apps</option>
         </select>
       </div>
       <div style="display: flex; flex-direction: column; gap: 8px">
@@ -328,6 +330,13 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
   }
+  var topicSel = document.getElementById('hh-type');
+  var interest = document.getElementById('hh-interest');
+  cta.addEventListener('click', function () {
+    var g = GOALS.filter(function (x) { return x.id === picked; })[0];
+    if (g) topicSel.value = 'One of your apps';
+    interest.value = g ? g.pillar : '';
+  });
   buttons.forEach(function (b) {
     b.addEventListener('click', function () {
       var id = b.getAttribute('data-goal');
