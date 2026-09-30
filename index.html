@@ -270,7 +270,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       <input type="hidden" name="access_key" value="60a61b0e-03c3-462c-8980-87ae9d6b668f">
       <input type="hidden" name="subject" value="New message from happyheartsoftware.com">
       <input type="hidden" name="from_name" value="Happy Heart Software website">
-      <input type="hidden" name="interest" id="hh-interest" value="">
       <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
       <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px">
         <div style="display: flex; flex-direction: column; gap: 8px">
@@ -340,19 +339,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 <script>
 (function () {
   var GOALS = [
-      { id: 'money', cta: 'Start with your money →', label: 'Take control of my money', pillar: 'Money', ring: '#2F9E6E', tint: '#E6F4EC', panel: 'linear-gradient(135deg, #D3F1DF 0%, #FFF0C4 100%)',
+      { id: 'money', url: 'https://bet.happyheartsoftware.com', cta: 'Start with your money →', label: 'Take control of my money', pillar: 'Money', ring: '#2F9E6E', tint: '#E6F4EC', panel: 'linear-gradient(135deg, #D3F1DF 0%, #FFF0C4 100%)',
         title: 'Budgeting that finally makes sense',
         body: 'See where every dollar goes, set goals you can actually hit, and build better money habits without spreadsheets or guilt.',
         points: ['Track expenses in seconds', 'Plan monthly budgets simply', 'Celebrate every goal you reach'] },
-      { id: 'create', cta: 'Start sharing your work →', label: 'Publish my creative work', pillar: 'Create', ring: '#B45A0E', tint: '#FCEEDB', panel: 'linear-gradient(135deg, #FFE1BF 0%, #FFD3DF 100%)',
+      { id: 'create', url: 'https://pubstar.vercel.app', cta: 'Start sharing your work →', label: 'Publish my creative work', pillar: 'Create', ring: '#B45A0E', tint: '#FCEEDB', panel: 'linear-gradient(135deg, #FFE1BF 0%, #FFD3DF 100%)',
         title: 'From idea to published, simply',
         body: 'Write, design, and share your stories, art, and ideas with the world using tools that feel natural from day one.',
         points: ['Easy writing and design tools', 'Publish in just a few taps', 'Grow your audience your way'] },
-      { id: 'wellness', cta: 'Start feeling better →', label: 'Feel better, body and mind', pillar: 'Wellness', ring: '#2F76B8', tint: '#E5EFF8', panel: 'linear-gradient(135deg, #D2E7FA 0%, #D8F4EA 100%)',
+      { id: 'wellness', url: 'https://fitness.happyheartsoftware.com', cta: 'Start feeling better →', label: 'Feel better, body and mind', pillar: 'Wellness', ring: '#2F76B8', tint: '#E5EFF8', panel: 'linear-gradient(135deg, #D2E7FA 0%, #D8F4EA 100%)',
         title: 'Gentle support for your whole self',
         body: 'Build healthy routines for your body and find calm, steady support for your mind as you recover and grow.',
         points: ['Daily wellness check-ins', 'Guided routines that fit your day', 'Tools that support mental recovery'] },
-      { id: 'play', cta: 'Start sharpening your mind →', label: 'Sharpen my mind', pillar: 'Play', ring: '#7B4FC0', tint: '#EFE8F8', panel: 'linear-gradient(135deg, #E3D7FA 0%, #FCDAEC 100%)',
+      { id: 'play', url: 'https://multiflora.app', cta: 'Start sharpening your mind →', label: 'Sharpen my mind', pillar: 'Play', ring: '#7B4FC0', tint: '#EFE8F8', panel: 'linear-gradient(135deg, #E3D7FA 0%, #FCDAEC 100%)',
         title: 'Games that make you think',
         body: 'Challenging puzzles and brain games that keep you engaged while helping your mind stay sharp and grow.',
         points: ['Puzzles that adapt to you', 'Track your progress over time', 'Fun enough to come back daily'] }
@@ -403,6 +402,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     title.textContent = cur.title;
     bodyEl.textContent = cur.body;
     cta.textContent = cur.cta;
+    if (g) { cta.href = g.url; cta.target = '_blank'; cta.rel = 'noopener'; }
+    else { cta.href = '#start'; cta.removeAttribute('target'); cta.removeAttribute('rel'); }
     points.innerHTML = '';
     cur.points.forEach(function (p) {
       var row = pointTpl.cloneNode(true);
@@ -418,13 +419,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       b.setAttribute('aria-pressed', on ? 'true' : 'false');
     });
   }
-  var topicSel = document.getElementById('hh-type');
-  var interest = document.getElementById('hh-interest');
-  cta.addEventListener('click', function () {
-    var g = GOALS.filter(function (x) { return x.id === picked; })[0];
-    if (g) topicSel.value = 'One of your apps';
-    interest.value = g ? g.pillar : '';
-  });
   buttons.forEach(function (b) {
     b.addEventListener('click', function () {
       var id = b.getAttribute('data-goal');
