@@ -178,7 +178,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <a href="mailto:seth.gayheart@happyheartsoftware.com" style="color: #B9A6FF">seth.gayheart@happyheartsoftware.com</a>
       </div>
     </div>
-    <form action="[FORM ENDPOINT]" method="POST" style="flex-grow: 1; display: flex; flex-direction: column; gap: 18px">
+    <form action="https://api.web3forms.com/submit" method="POST" style="flex-grow: 1; display: flex; flex-direction: column; gap: 18px">
+      <input type="hidden" name="access_key" value="60a61b0e-03c3-462c-8980-87ae9d6b668f">
+      <input type="hidden" name="subject" value="New message from happyheartsoftware.com">
+      <input type="hidden" name="from_name" value="Happy Heart Software website">
+      <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
       <div style="display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px">
         <div style="display: flex; flex-direction: column; gap: 8px">
           <label for="hh-name" style="font-size: 15px; font-weight: 700">Your name</label>
