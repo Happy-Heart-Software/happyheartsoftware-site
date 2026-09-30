@@ -101,8 +101,8 @@ APPS = {
     <h2>Deleting your data</h2>
     <ul>
       <li>Delete individual foods, diary entries and lifts in the app.</li>
-      <li>"Clear this device" on the Profile page removes your profile. "Clear data" on the Progress page removes your profile, routine, check-ins, completed workouts and lift log.</li>
-      <li>To remove everything, including your food diary, clear this site's data in your browser. On Android, open the app's storage settings and choose Manage space.</li>
+      <li>"Clear this device" on the Profile page and "Clear data" on the Progress page each erase everything Fitness &amp; Gains has saved on this device, including your food diary, saved foods, lift log, routines and settings.</li>
+      <li>You can also clear this site's data in your browser. On Android, open the app's storage settings and choose Manage space.</li>
     </ul>
     <p>You can download a full backup file from the Profile page at any time.</p>
 
