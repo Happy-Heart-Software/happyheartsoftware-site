@@ -78,6 +78,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   #top>div:first-child>div:last-child a{text-align:center;white-space:nowrap}
   #top h1{font-size:44px!important}
   .hh-badge{transform:scale(.82);transform-origin:left center}
+  #hh-panel>svg{display:none}
   #apps>div:last-child{grid-template-columns:1fr!important}
 }
 </style>
@@ -146,7 +147,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
           </div>
       </div>
       <div style="flex-grow: 1"></div>
-      <a href="#start" class="hh-shift" style="align-self: flex-start; padding: 18px 30px; border-radius: 999px; border: none; background-image: linear-gradient(90deg, #FF3CAC, #FF8A00, #FFD23F, #34D399, #22D3EE, #7C3AED, #FF3CAC); color: #150A2E; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: 0 14px 34px rgba(124,58,237,0.35), inset 0 2px 0 rgba(255,255,255,0.6)" id="hh-cta">Talk to us →</a>
+      <div style="align-self: flex-start; display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
+        <a href="#start" class="hh-shift" style="padding: 18px 30px; border-radius: 999px; border: none; background-image: linear-gradient(90deg, #FF3CAC, #FF8A00, #FFD23F, #34D399, #22D3EE, #7C3AED, #FF3CAC); color: #150A2E; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: 0 14px 34px rgba(124,58,237,0.35), inset 0 2px 0 rgba(255,255,255,0.6)" id="hh-cta">Talk to us →</a>
+        <a id="hh-cta2" href="#" target="_blank" rel="noopener" style="display: none; padding: 16px 26px; border-radius: 999px; border: 2px solid #150A2E; color: #150A2E; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 800"></a>
+      </div>
     </div>
   </section>
 
@@ -347,7 +351,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         title: 'From idea to published, simply',
         body: 'Write, design, and share your stories, art, and ideas with the world using tools that feel natural from day one.',
         points: ['Easy writing and design tools', 'Publish in just a few taps', 'Grow your audience your way'] },
-      { id: 'wellness', url: 'https://fitness.happyheartsoftware.com', cta: 'Start feeling better →', label: 'Feel better, body and mind', pillar: 'Wellness', ring: '#2F76B8', tint: '#E5EFF8', panel: 'linear-gradient(135deg, #D2E7FA 0%, #D8F4EA 100%)',
+      { id: 'wellness', url: 'https://fitness.happyheartsoftware.com', cta: 'Try Fitness & Gains →', url2: 'https://recovery.happyheartsoftware.com', cta2: 'Try Wellness & Recovery →', label: 'Feel better, body and mind', pillar: 'Wellness', ring: '#2F76B8', tint: '#E5EFF8', panel: 'linear-gradient(135deg, #D2E7FA 0%, #D8F4EA 100%)',
         title: 'Gentle support for your whole self',
         body: 'Build healthy routines for your body and find calm, steady support for your mind as you recover and grow.',
         points: ['Daily wellness check-ins', 'Guided routines that fit your day', 'Tools that support mental recovery'] },
@@ -393,6 +397,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   var bodyEl = document.getElementById('hh-body');
   var points = document.getElementById('hh-points');
   var cta = document.getElementById('hh-cta');
+  var cta2 = document.getElementById('hh-cta2');
   var pointTpl = points.firstElementChild.cloneNode(true);
   var buttons = Array.prototype.slice.call(document.querySelectorAll('.hh-goal'));
   function showGoal(g) {
@@ -404,6 +409,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     cta.textContent = cur.cta;
     if (g) { cta.href = g.url; cta.target = '_blank'; cta.rel = 'noopener'; }
     else { cta.href = '#start'; cta.removeAttribute('target'); cta.removeAttribute('rel'); }
+    if (g && g.url2) { cta2.href = g.url2; cta2.textContent = g.cta2; cta2.style.display = 'inline-block'; }
+    else { cta2.style.display = 'none'; }
     points.innerHTML = '';
     cur.points.forEach(function (p) {
       var row = pointTpl.cloneNode(true);
