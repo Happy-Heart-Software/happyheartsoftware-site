@@ -129,7 +129,7 @@ APPS = {
     <h2>What leaves your device</h2>
     <p><strong>AI Recovery Guide (optional).</strong> The guide only runs after you tick the consent box. It sends the answers you type into it: what you'd like to change, difficult moments (up to 500 characters each), and the time and support options you pick. These go through our server and Vercel's AI Gateway to Google's Gemini model, which writes the draft. Your saved plans, worksheets, logs and history are never included, and we don't save your answers or the draft. If your answers suggest a crisis, the request isn't sent to the AI, and you're shown crisis resources instead.</p>
     <p>To prevent abuse, the guide is limited to a few requests a day per network. To count them, we keep a scrambled code made from your IP address. It can't be turned back into the address, and it's deleted automatically after about 24 hours.</p>
-    <p><strong>Feedback.</strong> If you send feedback, your message, the topic, the name in your profile (if you've set one) and the email address you add (optional) are delivered to our inbox through Web3Forms.</p>
+    <p><strong>Feedback.</strong> If you send feedback, your message, the topic, the name in your profile (if you've set one) and the email address you add (optional) are delivered to our inbox through Heartforms, our own form service, which keeps a copy so we can answer you.</p>
     <p><strong>Finding meetings.</strong> If you use your location to find nearby meetings, it's used only to open a Google Maps search. It isn't saved or sent to us.</p>
 
     <h2>What we don't do</h2>
@@ -140,7 +140,7 @@ APPS = {
       <li><strong>Cloudflare</strong> and <strong>Vercel</strong> host the app and its AI feature, and keep request logs, including IP addresses, for security and troubleshooting.</li>
       <li><strong>Google (Gemini)</strong>, through <strong>Vercel AI Gateway</strong>, creates AI Recovery Guide drafts from the answers you choose to send.</li>
       <li><strong>Upstash</strong> stores the scrambled request counters described above.</li>
-      <li><strong>Web3Forms</strong> delivers feedback messages to our email, which is hosted by <strong>Google Workspace</strong>.</li>
+      <li><strong>Heartforms</strong>, our own form service, receives feedback messages and keeps a copy until we delete it. It runs on <strong>Cloudflare</strong> and sends the email through <strong>Resend</strong>. Our inbox is hosted by <strong>Google Workspace</strong>.</li>
       <li><strong>Google Fonts</strong> supplies the app's typefaces. Your device requests them directly, so Google receives your IP address.</li>
     </ul>
 
