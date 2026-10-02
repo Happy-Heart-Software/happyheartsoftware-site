@@ -351,8 +351,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <a href="mailto:contact@happyheartsoftware.com" style="color: #B9A6FF">contact@happyheartsoftware.com</a>
       </div>
     </div>
-    <form action="https://api.web3forms.com/submit" method="POST" style="flex-grow: 1; display: flex; flex-direction: column; gap: 18px">
-      <input type="hidden" name="access_key" value="60a61b0e-03c3-462c-8980-87ae9d6b668f">
+    <form id="hh-contact" action="https://forms.happyheartsoftware.com/submit" method="POST" style="flex-grow: 1; display: flex; flex-direction: column; gap: 18px">
+      <input type="hidden" name="access_key" value="hf_YNvxdqwbOkqQf8KxmHjMUikB">
       <input type="hidden" name="subject" value="New message from happyheartsoftware.com">
       <input type="hidden" name="from_name" value="Happy Heart Software website">
       <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="display: none">
@@ -381,6 +381,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <textarea id="hh-msg" name="message" rows="6" placeholder="Goals, timeline, anything we should know" style="width: 100%; box-sizing: border-box; min-height: 52px; padding: 0 18px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.22); background: rgba(255,255,255,0.06); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #FFFFFF; padding: 14px 18px; min-height: 170px; resize: vertical"></textarea>
       </div>
       <button type="submit" class="hh-shift" style="align-self: flex-start; padding: 18px 30px; border-radius: 999px; border: none; background-image: linear-gradient(90deg, #FF3CAC, #FF8A00, #FFD23F, #34D399, #22D3EE, #7C3AED, #FF3CAC); color: #150A2E; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: 0 14px 34px rgba(124,58,237,0.35), inset 0 2px 0 rgba(255,255,255,0.6)">Send message</button>
+      <p id="hh-contact-status" role="status" hidden style="margin: 0; padding: 14px 18px; border-radius: 12px; font-size: 16px; font-weight: 600"></p>
     </form>
   </section>
 
@@ -599,6 +600,35 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   }
   window.addEventListener('hashchange', openForm);
   openForm();
+})();
+</script>
+<script>
+// Contact form: sent to Heartforms (forms.happyheartsoftware.com) without leaving the page.
+// Without JavaScript the form still posts normally and Heartforms shows its thank-you page.
+(function () {
+  var form = document.getElementById('hh-contact');
+  var status = document.getElementById('hh-contact-status');
+  if (!form || !window.fetch) return;
+  function show(text, ok) {
+    status.textContent = text;
+    status.style.background = ok ? 'rgba(110,224,143,0.16)' : 'rgba(255,92,120,0.16)';
+    status.style.color = ok ? '#B8F5C9' : '#FFC2CD';
+    status.hidden = false;
+  }
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+    var button = form.querySelector('button[type="submit"]');
+    button.disabled = true;
+    status.hidden = true;
+    fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } })
+      .then(function (response) { return response.json().catch(function () { return {}; }); })
+      .then(function (result) {
+        if (result.success) { form.reset(); show('Thanks! Your message was sent. We\u2019ll reply by email soon.', true); }
+        else show(result.message || 'Your message didn\u2019t go through. Please try again, or email contact@happyheartsoftware.com.', false);
+      })
+      .catch(function () { show('You seem to be offline. Please try again, or email contact@happyheartsoftware.com.', false); })
+      .then(function () { button.disabled = false; });
+  });
 })();
 </script>
 <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "7ad7e3c86d304787a5f86a5c2492ec29"}'></script><!-- End Cloudflare Web Analytics -->
