@@ -186,7 +186,7 @@ APPS = {
     <p>Because we can't read your backup, we can't reset your password for you. If you lose both your password and your recovery key, your backup can't be opened by anyone, including us.</p>
 
     <h2>Contacting us</h2>
-    <p>If you use the contact form, your message, the topic you pick, your email address and your name (optional) are delivered to our inbox through Web3Forms, along with the app version and whether you're using Android or the web. Please don't include dream details you want to keep private. The Email us button opens your own email app instead.</p>
+    <p>If you use the contact form, your message, the topic you pick, your email address and your name (optional) are delivered to our inbox through Heartforms, our own form service, which keeps a copy so we can answer you, along with the app version and whether you're using Android or the web. Please don't include dream details you want to keep private. The Email us button opens your own email app instead.</p>
 
     <h2>Updates to the Android app</h2>
     <p>While Oneira's Android app is installed from our website, it checks oneira.happyheartsoftware.com for a newer version when it opens. This sends nothing about you beyond the request itself.</p>
@@ -197,7 +197,7 @@ APPS = {
     <h2>Services involved</h2>
     <ul>
       <li><strong>Cloudflare</strong> hosts the website, the Android app download and our backup server and database, and keeps request logs, including IP addresses, for security.</li>
-      <li><strong>Web3Forms</strong> delivers contact form messages to our email, which is hosted by <strong>Google Workspace</strong>.</li>
+      <li><strong>Heartforms</strong>, our own form service, receives contact form messages and keeps a copy until we delete it. It runs on <strong>Cloudflare</strong> and sends the email through <strong>Resend</strong>. Our inbox is hosted by <strong>Google Workspace</strong>.</li>
     </ul>
 
     <h2>Deleting your data</h2>
