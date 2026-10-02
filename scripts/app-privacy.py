@@ -242,7 +242,7 @@ APPS = {
     <ul>
       <li><strong>Supabase</strong> provides sign-in, our database and file storage, and sends account emails. Your browser keeps your sign-in session in its local storage.</li>
       <li><strong>Vercel</strong> hosts Pubstar and may keep request logs, including IP addresses, for security.</li>
-      <li><strong>Web3Forms</strong> delivers form messages to our email, which is hosted by <strong>Google Workspace</strong>.</li>
+      <li><strong>Heartforms</strong>, our own form service, receives support and studio messages and keeps a copy until we delete it. It runs on <strong>Cloudflare</strong> and sends the email through <strong>Resend</strong>. Our inbox is hosted by <strong>Google Workspace</strong>.</li>
     </ul>
 
     <h2>How long we keep it</h2>
