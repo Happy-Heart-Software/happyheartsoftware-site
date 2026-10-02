@@ -157,7 +157,7 @@ APPS = {
 '''),
 
 'pubstar': dict(
-  name='Pubstar', url='https://pubstar.vercel.app',
+  name='Pubstar', url='https://pubstar.happyheartsoftware.com',
   summary="Pubstar is a private portal where our studio and the creators we work with share the status of their published work. We collect the account and profile details you give us, use them only to run the studio, and never sell them or use them for ads.",
   body=f'''
     <h2>Who we are</h2>
