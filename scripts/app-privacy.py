@@ -156,6 +156,62 @@ APPS = {
     <p>Wellness &amp; Recovery is a self-help companion. It doesn't diagnose or treat any condition and isn't a substitute for professional care. If you are in crisis in the U.S., call or text 988, or call 911 in an emergency.</p>
 '''),
 
+'oneira': dict(
+  name='Oneira', url='https://oneira.happyheartsoftware.com', effective='October 2, 2026',
+  summary="your dream journal, practice and progress are saved on your device. There are no ads, analytics or tracking. An account is optional: if you turn on backup, everything is encrypted on your device first, with a key made from your password, so we can't read your dreams.",
+  body=f'''
+    <h2>Who we are</h2>
+    <p>Oneira (the web app at oneira.happyheartsoftware.com and its Android app) is made by Happy Heart Software, based in Ohio, USA ("we", "us"). This policy covers Oneira only.</p>
+
+    <h2>What stays on your device</h2>
+    <ul>
+      <li><strong>Your dream journal:</strong> entries, titles, tags, moods, lucidity and vividness ratings, and unsaved drafts.</li>
+      <li><strong>Your practice:</strong> reality checks, technique courses, Wake Back to Bed sessions, lessons read and dream signs.</li>
+      <li><strong>Your profile and settings:</strong> goals, sleep schedule, chosen technique, reminder settings, milestones, theme and text size.</li>
+    </ul>
+    <p>This is kept in the app's storage on your phone, or in your browser's storage on the website. Without an account, we never receive it. If Android backup is turned on for your phone, Android may include the app's data in your Google backup.</p>
+    <p>Dream signs are found on your device by counting words and tags across your entries. No AI service or server reads your journal.</p>
+
+    <h2>Reminders and alarms</h2>
+    <p>Reality check reminders, the morning journal prompt and the Wake Back to Bed alarm are scheduled on your phone. We don't send push notifications. On the website, reminders only appear while Oneira is open.</p>
+
+    <h2>Optional account and encrypted backup</h2>
+    <p>You can use Oneira fully without an account. If you create one, Oneira backs up your journal, practice and profile (not your theme, text size or drafts) and keeps your devices in step.</p>
+    <ul>
+      <li><strong>Encrypted on your device.</strong> Before anything leaves your device, it's encrypted with a key that only your password or your recovery key can unlock. Your password and recovery key never reach us.</li>
+      <li><strong>What our server stores:</strong> your email address, a check value derived from your password (stored only after hashing it again), your encryption key locked by your password and by your recovery key, the encrypted records, and sign-in sessions. We can see how many records you have, their sizes and when they last changed, but not what they say.</li>
+      <li><strong>Your email</strong> is used only to sign you in. We don't send you email or marketing.</li>
+      <li><strong>Security:</strong> to protect accounts, our server counts failed sign-ins and briefly limits repeated attempts from the same IP address.</li>
+    </ul>
+    <p>Because we can't read your backup, we can't reset your password for you. If you lose both your password and your recovery key, your backup can't be opened by anyone, including us.</p>
+
+    <h2>Contacting us</h2>
+    <p>If you use the contact form, your message, the topic you pick, your email address and your name (optional) are delivered to our inbox through Web3Forms, along with the app version and whether you're using Android or the web. Please don't include dream details you want to keep private. The Email us button opens your own email app instead.</p>
+
+    <h2>Updates to the Android app</h2>
+    <p>While Oneira's Android app is installed from our website, it checks oneira.happyheartsoftware.com for a newer version when it opens. This sends nothing about you beyond the request itself.</p>
+
+    <h2>What we don't do</h2>
+    <p>There are no ads, analytics, tracking or crash reporting, and Oneira doesn't set cookies. We don't sell your information or share it for advertising. The Android app asks only for permission to show notifications.</p>
+
+    <h2>Services involved</h2>
+    <ul>
+      <li><strong>Cloudflare</strong> hosts the website, the Android app download and our backup server and database, and keeps request logs, including IP addresses, for security.</li>
+      <li><strong>Web3Forms</strong> delivers contact form messages to our email, which is hosted by <strong>Google Workspace</strong>.</li>
+    </ul>
+
+    <h2>Deleting your data</h2>
+    <ul>
+      <li>Delete any dream from your journal. With backup on, the deletion reaches your other devices too.</li>
+      <li>Settings, Account &amp; backup, Delete account and backup removes your account and everything backed up with it from our server straight away. Copies in our database's recovery history are gone within 30 days. Your journal stays on your device.</li>
+      <li>Signing out stops backing up and leaves your journal on your device.</li>
+      <li>Uninstalling the app, or clearing this site's data in your browser, removes everything Oneira stored on that device.</li>
+    </ul>
+
+    <h2>Health information</h2>
+    <p>Oneira offers general information about sleep and lucid dreaming, not medical advice. If sleep problems, nightmares or anything else affects your health, talk with a doctor.</p>
+'''),
+
 'pubstar': dict(
   name='Pubstar', url='https://pubstar.happyheartsoftware.com',
   summary="Pubstar is a private portal where our studio and the creators we work with share the status of their published work. We collect the account and profile details you give us, use them only to run the studio, and never sell them or use them for ads.",
@@ -286,7 +342,7 @@ def main():
     out.mkdir(exist_ok=True)
     for slug, app in APPS.items():
         esc = app['name'].replace('&', '&amp;')
-        body = MAIN.format(name=esc, effective=EFFECTIVE, summary=app['summary'].replace('&', '&amp;'),
+        body = MAIN.format(name=esc, effective=app.get('effective', EFFECTIVE), summary=app['summary'].replace('&', '&amp;'),
                            body=app['body'], end=COMMON_END.format(app=esc))
         (out / f'{slug}.html').write_text(page(base, f'{esc} Privacy Policy', f'How {esc} handles your information.', body))
     links = sorted([(a['name'].replace('&', '&amp;'), f'/privacy/{s}') for s, a in APPS.items()] + EXTERNAL)
