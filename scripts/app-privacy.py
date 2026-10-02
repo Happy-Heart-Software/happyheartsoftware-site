@@ -6,7 +6,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EFFECTIVE = 'September 30, 2026'
+EFFECTIVE = 'October 2, 2026'
 CONTACT = '<a href="mailto:contact@happyheartsoftware.com">contact@happyheartsoftware.com</a>'
 
 COMMON_END = f'''
@@ -29,7 +29,7 @@ APPS = {
   summary="your home location and your trips are saved on your device. We don't run a server that receives them, and there are no accounts, ads or analytics. If you connect Google Sheets, the five log columns are copied to a spreadsheet in your own Google account.",
   body=f'''
     <h2>Who we are</h2>
-    <p>Daily Travel Log (the website at travel.happyheartsoftware.com and the Android and iPhone apps) is made by Happy Heart Software, based in Ohio, USA ("we", "us"). This policy covers Daily Travel Log only.</p>
+    <p>Daily Travel Log (the website at travel.happyheartsoftware.com and the Android and iPhone apps) is made by Happy Heart Software LLC, doing business as Happy Heart Software, based in Ohio, USA ("Happy Heart Software", "we", "us"). This policy covers Daily Travel Log only.</p>
 
     <h2>What stays on your device</h2>
     <ul>
@@ -72,7 +72,7 @@ APPS = {
   summary="your profile, food diary, workouts and check-ins are saved only on your device. There are no accounts, ads or analytics. When you search for a food, the search words go to our server to look up nutrition facts, but they aren't linked to you.",
   body=f'''
     <h2>Who we are</h2>
-    <p>Fitness &amp; Gains (the web app at fitness.happyheartsoftware.com and its Android app) is made by Happy Heart Software, based in Ohio, USA ("we", "us"). This policy covers Fitness &amp; Gains only.</p>
+    <p>Fitness &amp; Gains (the web app at fitness.happyheartsoftware.com and its Android app) is made by Happy Heart Software LLC, doing business as Happy Heart Software, based in Ohio, USA ("Happy Heart Software", "we", "us"). This policy covers Fitness &amp; Gains only.</p>
 
     <h2>What stays on your device</h2>
     <ul>
@@ -115,7 +115,7 @@ APPS = {
   summary="everything you write in Wellness & Recovery, including your plans, check-ins, worksheets and recovery dates, is saved only on your device. There are no accounts, ads or analytics. Nothing you've saved is shared unless you choose to export it. The only exception is what you type into the optional AI Recovery Guide.",
   body=f'''
     <h2>Who we are</h2>
-    <p>Wellness &amp; Recovery (the web app at recovery.happyheartsoftware.com and its Android app) is made by Happy Heart Software, based in Ohio, USA ("we", "us"). This policy covers Wellness &amp; Recovery only.</p>
+    <p>Wellness &amp; Recovery (the web app at recovery.happyheartsoftware.com and its Android app) is made by Happy Heart Software LLC, doing business as Happy Heart Software, based in Ohio, USA ("Happy Heart Software", "we", "us"). This policy covers Wellness &amp; Recovery only.</p>
 
     <h2>What stays on your device</h2>
     <ul>
@@ -161,7 +161,7 @@ APPS = {
   summary="your dream journal, practice and progress are saved on your device. There are no ads, analytics or tracking. An account is optional: if you turn on backup, everything is encrypted on your device first, with a key made from your password, so we can't read your dreams.",
   body=f'''
     <h2>Who we are</h2>
-    <p>Oneira (the web app at oneira.happyheartsoftware.com and its Android app) is made by Happy Heart Software, based in Ohio, USA ("we", "us"). This policy covers Oneira only.</p>
+    <p>Oneira (the web app at oneira.happyheartsoftware.com and its Android app) is made by Happy Heart Software LLC, doing business as Happy Heart Software, based in Ohio, USA ("Happy Heart Software", "we", "us"). This policy covers Oneira only.</p>
 
     <h2>What stays on your device</h2>
     <ul>
@@ -217,7 +217,7 @@ APPS = {
   summary="Pubstar is a private portal where our studio and the creators we work with share the status of their published work. We collect the account and profile details you give us, use them only to run the studio, and never sell them or use them for ads.",
   body=f'''
     <h2>Who we are</h2>
-    <p>Pubstar is made and run by Happy Heart Software, based in Ohio, USA ("we", "us", "the studio"). This policy covers Pubstar only.</p>
+    <p>Pubstar is made and run by Happy Heart Software LLC, doing business as Happy Heart Software, based in Ohio, USA ("Happy Heart Software", "we", "us", "the studio"). This policy covers Pubstar only.</p>
 
     <h2>What we collect</h2>
     <ul>
@@ -257,7 +257,7 @@ APPS = {
   summary="Quire is an invite-only tool that turns your manuscript into print-ready files. We keep your account details and your books so the service works. We don't use ads, analytics or tracking, and we never sell your information.",
   body=f'''
     <h2>Who we are</h2>
-    <p>Quire, at quire.happyheartsoftware.com, is made and run by Happy Heart Software, based in Ohio, USA ("we", "us"). This policy covers Quire only.</p>
+    <p>Quire, at quire.happyheartsoftware.com, is made and run by Happy Heart Software LLC, doing business as Happy Heart Software, based in Ohio, USA ("Happy Heart Software", "we", "us"). This policy covers Quire only.</p>
 
     <h2>What we collect</h2>
     <ul>
