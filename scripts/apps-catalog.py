@@ -68,7 +68,7 @@ APPS = [
          what='An app for playing Rows Garden crossword puzzles, the flower-shaped word puzzle with interlocking rows and blooms.',
          who=['Crossword and word-puzzle fans', 'Anyone who likes a daily brain workout']),
     dict(name='Heartforms', tagline='Forms for any website', area='Business', status='early',
-         url='https://forms.happyheartsoftware.com', works='Web',
+         url='https://forms.happyheartsoftware.com', privacy='/privacy/heartforms', works='Web',
          what='Collect what people send through your website and app forms: contact, support, sign-ups, waitlists, RSVPs, surveys, quotes and job applications. Every message is saved and emailed to the right person, and you can build a form page in minutes without code.',
          who=['Small businesses and organizations with a website', 'Event organizers taking RSVPs and sign-ups', 'Developers who want a simple form backend']),
 ]

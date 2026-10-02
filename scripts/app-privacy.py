@@ -212,6 +212,73 @@ APPS = {
     <p>Oneira offers general information about sleep and lucid dreaming, not medical advice. If sleep problems, nightmares or anything else affects your health, talk with a doctor.</p>
 '''),
 
+'heartforms': dict(
+  name='Heartforms', url='https://forms.happyheartsoftware.com',
+  summary="Heartforms collects what people send through the forms our customers put on their websites and apps, saves it for the form's owner and emails it to them. We only use that information to run the service for the form's owner. We don't sell it, use it for ads or track people.",
+  body=f'''
+    <h2>Who we are</h2>
+    <p>Heartforms (the form service and dashboard at forms.happyheartsoftware.com) is made and run by Happy Heart Software LLC, doing business as Happy Heart Software, based in Ohio, USA ("Happy Heart Software", "we", "us"). This policy covers Heartforms only.</p>
+    <p>Heartforms is used by two groups of people, and this policy covers both:</p>
+    <ul>
+      <li><strong>Form owners:</strong> the people and businesses with a Heartforms account who create forms and receive the messages.</li>
+      <li><strong>People who fill in a form:</strong> anyone who sends a message, sign-up, RSVP or other answers through a form that uses Heartforms, whether it's on a Heartforms page or on the form owner's own website or app.</li>
+    </ul>
+
+    <h2>If you filled in a form</h2>
+    <p>The form's owner decides what the form asks for and what they do with your answers. We store and deliver your answers for them, and don't use them for anything else. To see, change or delete what you sent, contact the form's owner first; if you can't reach them, email {CONTACT} and we'll help.</p>
+    <p>When you send a form, we keep:</p>
+    <ul>
+      <li><strong>Your answers:</strong> everything you typed or chose in the form, such as your name, email address and message.</li>
+      <li><strong>Details about the message:</strong> when it was sent, the website or app it came from, its subject, and which of the owner's contacts it was meant for (if the form let you choose).</li>
+      <li><strong>Delivery records:</strong> whether the email to the owner, an optional confirmation email to you, and any other service the owner connected (see “Services involved”) received it.</li>
+    </ul>
+    <p>If the form sends a confirmation email, it goes to the email address you entered, with a copy of your answers. To stop spam, we use a scrambled (one-way hashed) version of your IP address to count how many messages you send in a short time. It isn't stored with your answers, and the counts are deleted within about a day.</p>
+
+    <h2>If you have a Heartforms account</h2>
+    <p>We keep:</p>
+    <ul>
+      <li><strong>Your account:</strong> your name, email address, team name and role, and when you last signed in. If you set a password, we store only a one-way hash of it, never the password itself.</li>
+      <li><strong>Sign in with Google:</strong> if you use it, Google tells us your email address and name, and confirms your email. We don't get your Google password or access to anything else in your Google account.</li>
+      <li><strong>Your team's forms and settings:</strong> each form's name, questions, page wording, access key, allowed websites, who gets its messages, confirmation-email wording and any webhook address.</li>
+      <li><strong>Your team's email addresses:</strong> the addresses that receive messages, and whether each one has been confirmed.</li>
+      <li><strong>Messages sent to your forms:</strong> as described above.</li>
+    </ul>
+    <p>Everyone on your team can see and change the team's forms, messages and email addresses. People outside your team can't. Our administrators can see account and team details, and the number of messages each team receives, to run and support the service.</p>
+
+    <h2>Cookies</h2>
+    <p>The dashboard uses one cookie to keep you signed in for up to 30 days, and Sign in with Google uses a second cookie for about 10 minutes while you sign in. Both are needed for the service to work. Heartforms doesn't use advertising or analytics cookies, and form pages don't set cookies.</p>
+
+    <h2>How we use information</h2>
+    <ul>
+      <li>To save form messages and deliver them to the form's owner, and to send confirmation emails the owner turned on.</li>
+      <li>To run accounts: signing in, confirming email addresses, invitations and password resets.</li>
+      <li>To keep the service secure and free of spam and abuse.</li>
+    </ul>
+    <p>We don't sell information, use it for advertising, or use form messages to train AI models.</p>
+
+    <h2>Services involved</h2>
+    <ul>
+      <li><strong>Cloudflare</strong> runs Heartforms and stores its database. It may keep request logs, including IP addresses, for a few days for security and fixing problems.</li>
+      <li><strong>Resend</strong> sends Heartforms' emails: new-message notifications, confirmation emails, and account emails such as invitations and password resets.</li>
+      <li><strong>Google</strong> provides Sign in with Google (if you use it) and the typefaces on Heartforms pages. Your browser requests the fonts from Google, which receives your IP address and browser information.</li>
+      <li><strong>The form owner's own services:</strong> a form owner can connect a webhook, which sends each new message to another address they choose, such as a spreadsheet or automation tool. What happens there is up to the form owner and that service.</li>
+    </ul>
+
+    <h2>How long we keep it</h2>
+    <ul>
+      <li><strong>Form messages</strong> are kept until the form's owner deletes them, deletes the form or closes their account.</li>
+      <li><strong>Accounts</strong> are kept until they're closed.</li>
+      <li><strong>Sign-in sessions</strong> expire after 30 days. One-time links expire: email confirmations after 3 days, invitations after 7 days and password resets after 1 hour.</li>
+      <li><strong>Spam-protection counts</strong> are deleted within about a day.</li>
+    </ul>
+
+    <h2>Deleting your data</h2>
+    <p>Form owners can delete any message, or a whole form and all its messages, from the dashboard at any time. To close an account and delete your team's data, email {CONTACT}. If you filled in a form and want your answers deleted, ask the form's owner, or email us and we'll help.</p>
+
+    <h2>Security</h2>
+    <p>Heartforms only works over encrypted connections (HTTPS). Passwords, sign-in sessions and one-time links are stored only as one-way hashes, and each team's data is kept separate from every other team's.</p>
+'''),
+
 'pubstar': dict(
   name='Pubstar', url='https://pubstar.happyheartsoftware.com',
   summary="Pubstar is a private portal where our studio and the creators we work with share the status of their published work. We collect the account and profile details you give us, use them only to run the studio, and never sell them or use them for ads.",
@@ -241,7 +308,7 @@ APPS = {
     <h2>Services involved</h2>
     <ul>
       <li><strong>Supabase</strong> provides sign-in, our database and file storage, and sends account emails. Your browser keeps your sign-in session in its local storage.</li>
-      <li><strong>Vercel</strong> hosts Pubstar and may keep request logs, including IP addresses, for security.</li>
+      <li><strong>Cloudflare</strong> hosts Pubstar and may keep request logs, including IP addresses, for security.</li>
       <li><strong>Heartforms</strong>, our own form service, receives support and studio messages and keeps a copy until we delete it. It runs on <strong>Cloudflare</strong> and sends the email through <strong>Resend</strong>. Our inbox is hosted by <strong>Google Workspace</strong>.</li>
     </ul>
 
