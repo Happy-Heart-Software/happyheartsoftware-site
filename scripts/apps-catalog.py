@@ -64,7 +64,7 @@ APPS = [
          what='A simple, readable log of your trips for your phone or computer, kept on your device. Export to CSV or copy it to your own Google Sheet.',
          who=['People who log trips or mileage for work, expenses or taxes', 'Travelers who want a simple record of where they’ve been']),
     dict(name='Multiflora', tagline='Word puzzles', area='Play', status='live',
-         url='https://multiflora.app', works='Web and Android (Google Play)',
+         url='https://multiflora.app', play='https://play.google.com/store/apps/details?id=app.multiflora.android', works='Web and Android (Google Play)',
          what='An app for playing Rows Garden crossword puzzles, the flower-shaped word puzzle with interlocking rows and blooms.',
          who=['Crossword and word-puzzle fans', 'Anyone who likes a daily brain workout']),
     dict(name='Heartforms', tagline='Forms for any website', area='Business', status='early',
@@ -120,6 +120,8 @@ def card(app):
         actions.append('<a class="hh-cat-soft" href="/#start">Ask for access</a>')
     if app.get('android'):
         actions.append(f'<a class="hh-cat-soft" href="{escape(app["android"])}" download>Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the {n} app for Android)</span></a>')
+    if app.get('play'):
+        actions.append(f'<a class="hh-cat-soft" href="{escape(app["play"])}" target="_blank" rel="noopener">Google Play <span aria-hidden="true">↗</span><span class="hh-sr"> (get the {n} app for Android on Google Play, opens in a new tab)</span></a>')
     if app.get('privacy'):
         actions.append(f'<a class="hh-cat-plain" href="{escape(app["privacy"])}">Privacy</a>')
     who = '\n'.join(f'          <li>{escape(w)}</li>' for w in app['who'])
