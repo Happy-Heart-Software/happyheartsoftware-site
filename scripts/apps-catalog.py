@@ -34,7 +34,7 @@ APPS = [
          privacy='https://bet.happyheartsoftware.com/privacy', works='Web and Android',
          what='Track your spending in simple ledgers that live in your own Google Drive. Add expenses in seconds, attach receipts, import transactions, and share a ledger with someone you budget with.',
          who=['Households and couples who share a budget', 'Anyone who wants a budget spreadsheet without building one', 'People who want their money records in their own Google account, not someone else’s server']),
-    dict(name='Quire', tagline='Book formatting', area='Create', status='soon',
+    dict(name='Quire', tagline='Book formatting', area='Create', status='live',
          url='https://quire.happyheartsoftware.com', privacy='/privacy/quire', works='Web (invite only)',
          what='Turn a finished manuscript into a print-ready 6×9 PDF and an EPUB e-book, with clean typography and no design skills needed.',
          who=['Independent authors self-publishing a book', 'Small presses preparing manuscripts for print', 'Writers who want a professional-looking book without layout software']),
