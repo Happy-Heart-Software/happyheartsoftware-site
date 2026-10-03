@@ -111,7 +111,7 @@ APPS = {
 '''),
 
 'wellness-and-recovery': dict(
-  name='Wellness & Recovery', url='https://recovery.happyheartsoftware.com',
+  name='Wellness & Recovery', url='https://recovery.happyheartsoftware.com', effective='October 3, 2026',
   summary="everything you write in Wellness & Recovery, including your plans, check-ins, worksheets and recovery dates, is saved only on your device. There are no accounts, ads or analytics. Nothing you've saved is shared unless you choose to export it. The only exception is what you type into the optional AI Recovery Guide.",
   body=f'''
     <h2>Who we are</h2>
@@ -127,8 +127,8 @@ APPS = {
     <p>This is kept in your browser's storage. We never receive it. The Android app opens Wellness &amp; Recovery in Chrome, so its data is kept in Chrome's storage for the site.</p>
 
     <h2>What leaves your device</h2>
-    <p><strong>AI Recovery Guide (optional).</strong> The guide only runs after you tick the consent box. It sends the answers you type into it: what you'd like to change, difficult moments (up to 500 characters each), and the time and support options you pick. These go through our server and Vercel's AI Gateway to Google's Gemini model, which writes the draft. Your saved plans, worksheets, logs and history are never included, and we don't save your answers or the draft. If your answers suggest a crisis, the request isn't sent to the AI, and you're shown crisis resources instead.</p>
-    <p>To prevent abuse, the guide is limited to a few requests a day per network. To count them, we keep a scrambled code made from your IP address. It can't be turned back into the address, and it's deleted automatically after about 24 hours.</p>
+    <p><strong>AI Recovery Guide (optional).</strong> The guide uses your own API key from Google (Gemini) or Anthropic (Claude), and only runs after you tick the consent box. It sends the answers you type into it: what you'd like to change, difficult moments (up to 500 characters each), and the time and support options you pick. They go straight from your device to the provider you chose, under your own account's terms with that provider, which writes the draft. On Google's free tier, Google may have people read them and may use them to improve its products. Our server never receives your key, your answers or the draft. Your saved plans, worksheets, logs and history are never included, and we don't save your answers or the draft. If your answers suggest a crisis, nothing is sent to the AI, and you're shown crisis resources instead.</p>
+    <p>If you choose to remember your API key, it's kept in this browser's storage on your device only. It isn't included in backups, and Remove key or Reset to Defaults erases it.</p>
     <p><strong>Feedback.</strong> If you send feedback, your message, the topic, the name in your profile (if you've set one) and the email address you add (optional) are delivered to our inbox through Heartforms, our own form service, which keeps a copy so we can answer you.</p>
     <p><strong>Finding meetings.</strong> If you use your location to find nearby meetings, it's used only to open a Google Maps search. It isn't saved or sent to us.</p>
 
@@ -137,9 +137,8 @@ APPS = {
 
     <h2>Services involved</h2>
     <ul>
-      <li><strong>Cloudflare</strong> and <strong>Vercel</strong> host the app and its AI feature, and keep request logs, including IP addresses, for security and troubleshooting.</li>
-      <li><strong>Google (Gemini)</strong>, through <strong>Vercel AI Gateway</strong>, creates AI Recovery Guide drafts from the answers you choose to send.</li>
-      <li><strong>Upstash</strong> stores the scrambled request counters described above.</li>
+      <li><strong>Cloudflare</strong> hosts the app and keeps request logs, including IP addresses, for security and troubleshooting.</li>
+      <li><strong>Google (Gemini)</strong> or <strong>Anthropic (Claude)</strong>, whichever you choose, creates AI Recovery Guide drafts from the answers you send, using your own API key. Your use is covered by your agreement and privacy policy with that provider.</li>
       <li><strong>Heartforms</strong>, our own form service, receives feedback messages and keeps a copy until we delete it. It runs on <strong>Cloudflare</strong> and sends the email through <strong>Resend</strong>. Our inbox is hosted by <strong>Google Workspace</strong>.</li>
       <li><strong>Google Fonts</strong> supplies the app's typefaces. Your device requests them directly, so Google receives your IP address.</li>
     </ul>
