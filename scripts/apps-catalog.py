@@ -9,6 +9,7 @@ When an app is added or removed, also update the cards in index.html's #apps sec
 from html import escape
 from pathlib import Path
 import importlib.util
+import json
 
 ROOT = Path(__file__).resolve().parent.parent
 
@@ -73,6 +74,62 @@ APPS = [
          who=['Small businesses and organizations with a website', 'Event organizers taking RSVPs and sign-ups', 'Developers who want a simple form backend']),
 ]
 
+# Search engines read these to tell what kind of app each one is.
+CATEGORY = {
+    'Money': 'FinanceApplication',
+    'Create': 'DesignApplication',
+    'Wellness': 'HealthApplication',
+    'Everyday': 'TravelApplication',
+    'Play': 'GameApplication',
+    'Business': 'BusinessApplication',
+}
+
+SITE = 'https://happyheartsoftware.com'
+TITLE = 'All our apps'
+DESCRIPTION = ('Every Happy Heart Software app: budgeting, book formatting, publishing, fitness, '
+               'wellness, dream journaling, travel logs, word puzzles and website forms. '
+               'What each one does, who it helps and where it works.')
+
+
+def head_tags():
+    """Canonical link, link-preview tags and a schema.org list of the apps, for the catalog's <head>."""
+    apps = []
+    for i, app in enumerate(APPS, 1):
+        item = {
+            '@type': 'SoftwareApplication',
+            'name': app['name'],
+            'description': app['what'],
+            'url': app['url'],
+            'applicationCategory': CATEGORY[app['area']],
+            'operatingSystem': 'Web, Android' if 'Android' in app['works'] else 'Web',
+            'publisher': {'@type': 'Organization', 'name': 'Happy Heart Software', 'url': SITE + '/'},
+        }
+        if app.get('play'):
+            item['installUrl'] = app['play']
+        apps.append({'@type': 'ListItem', 'position': i, 'url': f'{SITE}/apps/#{slug(app)}', 'item': item})
+    data = {'@context': 'https://schema.org', '@type': 'ItemList', 'name': 'Happy Heart Software apps', 'itemListElement': apps}
+    ld = json.dumps(data, ensure_ascii=False, indent=1).replace('</', '<\\/')
+    d = escape(DESCRIPTION)
+    return f'''<link rel="canonical" href="{SITE}/apps/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Happy Heart Software">
+<meta property="og:title" content="{TITLE} | Happy Heart Software">
+<meta property="og:description" content="{d}">
+<meta property="og:url" content="{SITE}/apps/">
+<meta property="og:image" content="{SITE}/img/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Happy Heart Software: Small steps. Happy heart.">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{ld}
+</script>'''
+
+
+def slug(app):
+    return app['name'].lower().replace(' & ', '-').replace(' ', '-')
+
+
 STATUS = {
     'live': ('Live', '#B8F5C9', '#6EE08F'),
     'soon': ('Back soon', '#FFE2A8', '#FFC24D'),
@@ -125,7 +182,7 @@ def card(app):
     if app.get('privacy'):
         actions.append(f'<a class="hh-cat-plain" href="{escape(app["privacy"])}">Privacy</a>')
     who = '\n'.join(f'          <li>{escape(w)}</li>' for w in app['who'])
-    return f'''      <article class="hh-cat-card" id="{escape(app['name'].lower().replace(' & ', '-').replace(' ', '-'))}">
+    return f'''      <article class="hh-cat-card" id="{escape(slug(app))}">
         <div class="hh-cat-top"><span class="hh-cat-tag" style="background:{tag_bg};color:{tag_fg}">{escape(app['area'])}</span><span class="hh-cat-status" style="color:{text_color}"><i aria-hidden="true" style="background:{dot}"></i>{label}</span></div>
         <h3>{n}</h3>
         <p class="hh-cat-tagline">{escape(app['tagline'])}</p>
@@ -164,7 +221,10 @@ def main():
   </main>'''
     out = ROOT / 'apps'
     out.mkdir(exist_ok=True)
-    html = _ap.page(_ap.shell(), 'All our apps', 'Every Happy Heart Software app: what it does, who it helps and where it works.', body)
+    html = _ap.page(_ap.shell(), TITLE, escape(DESCRIPTION), body)
+    desc_tag = f'<meta name="description" content="{escape(DESCRIPTION)}">'
+    assert html.count(desc_tag) == 1
+    html = html.replace(desc_tag, desc_tag + '\n' + head_tags())
     (out / 'index.html').write_text(html)
     print(f'wrote apps/index.html with {len(APPS)} apps')
 
