@@ -3,9 +3,7 @@
 .remember
 .wrangler
 .assetsignore
-.nojekyll
 .gitignore
-CNAME
 wrangler.jsonc
 scripts
 node_modules
