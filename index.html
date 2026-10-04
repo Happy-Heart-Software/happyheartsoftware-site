@@ -45,18 +45,10 @@ a{color:#9CCBFF}a:hover{color:#C9E2FF}
 @media (prefers-reduced-motion: reduce){.hh-shift{animation:none}}
 @keyframes hhPop{0%{opacity:0;transform:scale(0) rotate(45deg)}65%{opacity:1;transform:scale(1.3) rotate(0)}100%{opacity:1;transform:none}}
 @keyframes hhWave{0%{transform:none}35%{transform:translateY(-9px) scale(1.18)}70%{transform:translateY(2px)}100%{transform:none}}
-@keyframes hhBadgeInA{0%{opacity:0;transform:translateY(18px) scale(.9)}70%{opacity:1;transform:translateY(-4px) scale(1.02)}100%{opacity:1;transform:none}}
-@keyframes hhBadgeInB{0%{opacity:0;transform:translateY(18px) scale(.9)}70%{opacity:1;transform:translateY(-4px) scale(1.02)}100%{opacity:1;transform:none}}
-@keyframes hhIconBop{0%,100%{transform:none}30%{transform:rotate(-12deg) scale(1.15)}60%{transform:rotate(8deg) scale(1.05)}}
 .hh-px,.hh-pxg{transform-box:fill-box;transform-origin:center}
 .hh-in .hh-px{animation:hhPop .45s cubic-bezier(.2,.8,.3,1.2) backwards;animation-delay:calc(var(--d) * 17ms)}
 .hh-hero:hover .hh-pxg{animation:hhWave .5s ease-in-out;animation-delay:calc(var(--d) * 9ms)}
-.hh-in .hh-bA{animation:hhBadgeInA .55s ease-out backwards}
-.hh-in .hh-bB{animation:hhBadgeInB .55s ease-out backwards}
-.hh-badge{transition:transform .25s ease,box-shadow .25s ease}
-.hh-badge:hover{transform:translateY(-6px) rotate(-1.5deg);box-shadow:0 18px 40px rgba(0,0,0,.4)}
-.hh-badge:hover>div:first-child{animation:hhIconBop .6s ease}
-@media (prefers-reduced-motion: reduce){.hh-in .hh-px,.hh-hero:hover .hh-pxg,.hh-in .hh-bA,.hh-in .hh-bB,.hh-badge:hover>div:first-child{animation:none}.hh-badge:hover{transform:none}}
+@media (prefers-reduced-motion: reduce){.hh-in .hh-px,.hh-hero:hover .hh-pxg{animation:none}}
 html,body{overflow-x:hidden}
 body{background:#1E1840;background-image:linear-gradient(160deg,#2A1C4E 0%,#221F4E 35%,#173A3D 70%,#1D2346 100%);min-height:100vh;color:#FFFFFF}
 #page{background:transparent!important}
@@ -64,34 +56,30 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 #top a,#goal a,#start button{white-space:nowrap}
 .hh-app a:hover{background:rgba(255,255,255,0.1)}
 .hh-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
-.hh-goal{transition:background .2s ease,border-color .2s ease}
-#hh-panel{transition:background-image .3s ease}
-.hh-badge{padding:12px 18px 12px 12px;background:rgba(28,22,58,0.92);border:1px solid rgba(255,255,255,0.14);border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,0.3);display:flex;align-items:center;gap:12px;color:#FFFFFF;text-decoration:none;white-space:nowrap}
-.hh-badge:hover{color:#FFFFFF}
-.hh-badge-art{width:50px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
-.hh-badge-art svg{width:36px;height:auto}
-.hh-badge-text{display:flex;flex-direction:column;gap:2px}
-.hh-badge-text span:first-child{font-size:14px;font-weight:700}
-.hh-badge-text span:last-child{font-size:13px;color:#C9C4DA}
 @keyframes hhFadeUp{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
-.hh-grid{display:block;width:100%;height:auto;overflow:visible}
-.hh-grid rect{transform-box:fill-box;transform-origin:center;stroke-width:2;transition:fill .35s ease,stroke .35s ease,opacity .35s ease;transition-delay:calc(var(--d) * 18ms)}
-.hh-grid rect.off{opacity:0;fill:transparent;stroke:transparent}
-.hh-grid rect.ghost{fill:rgba(255,255,255,0.06);stroke:rgba(255,255,255,0.3)}
-.hh-grid rect.on{stroke:transparent}
-.hh-grid.hh-pop rect.on{animation:hhPop .45s cubic-bezier(.2,.8,.3,1.2) backwards;animation-delay:calc(var(--d) * 22ms)}
-.hh-art{height:128px;border-radius:14px;display:flex;align-items:center;justify-content:center}
-.hh-art svg{width:120px}
-.hh-app:hover .hh-art rect{animation:hhWave .5s ease-in-out;animation-delay:calc(var(--d) * 22ms)}
-.hh-goal{min-height:56px;padding:0 22px;border-radius:14px;background:rgba(255,255,255,0.05);color:#FFFFFF;border:2px solid rgba(255,255,255,0.14);font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:600;text-align:left;cursor:pointer}
+.hh-goals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;padding-top:10px}
+.hh-goal{padding:14px 20px 18px;border-radius:16px;background:rgba(255,255,255,0.05);color:#FFFFFF;border:2px solid rgba(255,255,255,0.14);font-family:'Plus Jakarta Sans',sans-serif;font-size:18px;font-weight:600;text-align:left;cursor:pointer;display:flex;flex-direction:column;align-items:flex-start;gap:4px;overflow:hidden;transition:background .2s ease,border-color .2s ease}
 .hh-goal:hover{background:rgba(255,255,255,0.1)}
 .hh-goal[aria-pressed="true"]{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.9)}
-.hh-step{display:flex;align-items:center;gap:20px;padding:14px;border-radius:18px;background:rgba(255,255,255,0.78);border:2px solid transparent;box-shadow:0 8px 22px rgba(40,20,80,0.1);transition:background .3s ease,border-color .3s ease,box-shadow .3s ease}
+.hh-goal-art{width:132px;margin:0 0 2px -10px}
+.hh-why-art{width:168px;margin:-10px 0 4px -14px}
+#hh-panel{transition:background-image .3s ease}
+#hh-panel:not([hidden]){display:flex;animation:hhFadeUp .4s ease}
+.hh-line{display:block;width:100%;height:auto;overflow:visible;fill:none;stroke:var(--ink);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.hh-line .a{stroke:var(--acc)}
+.hh-line .f{fill:var(--acc);stroke:none;opacity:0;transition:opacity .8s ease .2s}
+.hh-line .s{stroke-dasharray:1 1.1;stroke-dashoffset:1.05;transition:stroke-dashoffset .5s ease}
+.hh-line.hh-drawn .s{stroke-dashoffset:0;transition:stroke-dashoffset 1.1s cubic-bezier(.5,0,.2,1);transition-delay:calc(var(--i) * 70ms)}
+.hh-line.hh-drawn .f{opacity:.16}
+.hh-app{position:relative;overflow:hidden}
+.hh-app>:not(.hh-art){position:relative}
+.hh-art{position:absolute;right:-44px;bottom:-30px;width:190px;opacity:.34;pointer-events:none;transition:opacity .4s ease,transform .6s ease}
+.hh-app:hover .hh-art{opacity:.6;transform:translate(-6px,-6px) rotate(-2deg)}
+.hh-step{position:relative;overflow:hidden;flex:1 1 0;min-width:0;max-width:440px;display:flex;flex-direction:column;padding:112px 18px 18px;border-radius:18px;background:rgba(255,255,255,0.78);box-shadow:0 8px 22px rgba(40,20,80,0.1)}
 .hh-step[hidden]{display:none}
-.hh-step.hh-ghost{background:rgba(255,255,255,0.32);border-color:rgba(26,22,36,0.16);border-style:dashed;box-shadow:none}
-.hh-step-art{width:132px;flex-shrink:0;padding:12px 14px;box-sizing:border-box;border-radius:13px;background:#241D4F;transition:background .4s ease}
-.hh-step.hh-ghost .hh-step-art{background:rgba(36,29,79,0.72)}
-.hh-step-text{flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.hh-step-bg{position:absolute;top:-10px;right:-14px;width:160px;height:120px;opacity:.55;pointer-events:none}
+.hh-step-bg svg{position:absolute;inset:0}
+.hh-step-text{position:relative;flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:8px}
 .hh-step-text>*{animation:hhFadeUp .4s ease backwards;animation-delay:.12s}
 .hh-step-head{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:10px;row-gap:2px}
 .hh-step-head h4{margin:0;font-family:Sora,sans-serif;font-size:21px;font-weight:700;letter-spacing:-0.3px}
@@ -104,14 +92,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .hh-btn:hover{background:#3A2A6E;border-color:#3A2A6E;color:#FFFFFF}
 .hh-btn2{color:#150A2E;border:2px solid rgba(21,10,46,0.5)}
 .hh-btn2:hover{color:#150A2E;border-color:#150A2E;background:rgba(255,255,255,0.6)}
-.hh-sk{display:flex;flex-direction:column;gap:10px}
-.hh-sk span{display:block;height:12px;border-radius:6px;background:rgba(26,22,36,0.12)}
-.hh-sk span:first-child{height:18px;background:rgba(26,22,36,0.18)}
 .hh-morph .hh-px{transition:translate .9s cubic-bezier(.6,0,.2,1),fill .9s ease,scale .5s ease,opacity .5s ease;transition-delay:calc(var(--d) * 5ms)}
 .hh-cap{position:absolute;left:50%;bottom:46px;transform:translate(-50%,8px);padding:10px 18px;border-radius:999px;background:rgba(28,22,58,0.92);border:1px solid rgba(255,255,255,0.18);color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .4s ease,transform .4s ease}
 .hh-cap.hh-cap-on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
 .hh-cap:hover{color:#FFFFFF;background:rgba(48,38,98,0.95)}
-@media (prefers-reduced-motion: reduce){.hh-grid rect,.hh-morph .hh-px{transition:none}.hh-app:hover .hh-art rect,.hh-step-text>*{animation:none}}
+@media (prefers-reduced-motion: reduce){.hh-line *,.hh-art,.hh-morph .hh-px{transition:none!important}.hh-step-text>*{animation:none}}
 @media (max-width: 1100px){
   header{height:auto!important;padding:16px 24px!important;flex-wrap:wrap;gap:14px}
   header nav{gap:18px!important;flex-wrap:wrap}
@@ -122,7 +107,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   #goal{flex-direction:column!important;margin:24px 16px 0!important;padding:28px 22px!important;gap:28px!important;min-height:0!important}
   #goal>div:first-child{width:auto!important}
   #goal h2,#why h2,#start h2{font-size:36px!important}
-  #hh-panel{padding:28px!important;min-height:440px}
+  #hh-panel{padding:28px!important}
+  .hh-goals{grid-template-columns:repeat(2,minmax(0,1fr))}
+  #hh-steps{flex-direction:column!important}
+  .hh-step{max-width:none}
   #why{margin:56px 16px 0!important;padding:36px 22px!important}
   #apps{margin:56px 16px 0!important}
   #about{flex-direction:column!important;align-items:stretch!important;margin:56px 16px 0!important;padding:36px 22px!important;gap:32px!important}
@@ -156,11 +144,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   #top>div:first-child>div:last-child{flex-direction:column;align-items:stretch}
   #top>div:first-child>div:last-child a{text-align:center;white-space:nowrap}
   #top h1{font-size:44px!important}
-  .hh-badge{transform:scale(.82);transform-origin:left center}
   #hh-panel{padding:22px!important}
-  .hh-step{flex-direction:column;align-items:stretch;gap:14px}
-  .hh-step-art{width:100%;padding:12px 0;display:flex;justify-content:center}
-  .hh-step-art svg{width:110px}
+  .hh-goals{grid-template-columns:1fr}
+  .hh-goal{flex-direction:row;align-items:center;gap:14px;padding:12px 16px}
+  .hh-goal-art{width:88px;flex-shrink:0;margin:0}
   #apps>div:last-child{grid-template-columns:1fr!important}
   #services>div:nth-child(2){grid-template-columns:1fr!important}
 }
@@ -190,31 +177,31 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <a href="#start" style="padding: 18px 30px; border-radius: 999px; background: rgba(255,255,255,0.85); border: 1px solid #FFFFFF; box-shadow: 0 10px 30px rgba(0,0,0,0.25); color: #150A2E; text-decoration: none; font-size: 17px; font-weight: 700">Talk to us</a>
       </div>
     </div>
-    <div id="hh-hero" class="hh-hero hh-in" style="width: 540px; height: 540px; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 999px; background: radial-gradient(circle at 50% 40%, rgba(90,210,180,0.22) 0%, rgba(40,80,90,0.35) 55%, rgba(18,40,46,0.65) 100%); border: 1px solid rgba(255,255,255,0.08)">
+    <div id="hh-hero" class="hh-hero hh-in hh-morph" style="width: 540px; height: 540px; position: relative; display: flex; align-items: center; justify-content: center; border-radius: 999px; background: radial-gradient(circle at 50% 40%, rgba(90,210,180,0.22) 0%, rgba(40,80,90,0.35) 55%, rgba(18,40,46,0.65) 100%); border: 1px solid rgba(255,255,255,0.08)">
       <svg width="420" height="355" viewBox="0 0 260 220" aria-label="Happy Heart voxel heart"><g class="hh-pxg" style="--d: 44"><rect class="hh-px" style="--d: 8" x="41.25" y="1.25" width="17.5" height="17.5" rx="3" fill="hsl(26 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 34"><rect class="hh-px" style="--d: 10" x="61.25" y="1.25" width="17.5" height="17.5" rx="3" fill="hsl(40 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 77"><rect class="hh-px" style="--d: 36" x="81.25" y="1.25" width="17.5" height="17.5" rx="3" fill="hsl(53 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 29"><rect class="hh-px" style="--d: 7" x="161.25" y="1.25" width="17.5" height="17.5" rx="3" fill="hsl(105 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 40"><rect class="hh-px" style="--d: 13" x="181.25" y="1.25" width="17.5" height="17.5" rx="3" fill="hsl(119 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 32"><rect class="hh-px" style="--d: 19" x="201.25" y="1.25" width="17.5" height="17.5" rx="3" fill="hsl(132 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 75"><rect class="hh-px" style="--d: 21" x="21.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(26 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 60"><rect class="hh-px" style="--d: 74" x="41.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(40 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 43"><rect class="hh-px" style="--d: 27" x="61.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(53 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 52"><rect class="hh-px" style="--d: 73" x="81.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(66 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 3"><rect class="hh-px" style="--d: 34" x="101.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(79 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 8"><rect class="hh-px" style="--d: 22" x="141.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(105 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 10"><rect class="hh-px" style="--d: 32" x="161.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(119 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 30"><rect class="hh-px" style="--d: 68" x="181.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(132 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 47"><rect class="hh-px" style="--d: 54" x="201.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(145 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 48"><rect class="hh-px" style="--d: 55" x="221.25" y="21.25" width="17.5" height="17.5" rx="3" fill="hsl(158 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 61"><rect class="hh-px" style="--d: 62" x="1.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(26 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 78"><rect class="hh-px" style="--d: 52" x="21.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(40 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 46"><rect class="hh-px" style="--d: 6" x="41.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(53 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 81"><rect class="hh-px" style="--d: 46" x="61.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(66 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 20"><rect class="hh-px" style="--d: 30" x="81.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(79 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 35"><rect class="hh-px" style="--d: 39" x="101.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(92 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 80"><rect class="hh-px" style="--d: 25" x="121.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(105 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 63"><rect class="hh-px" style="--d: 9" x="141.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(119 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 26"><rect class="hh-px" style="--d: 48" x="161.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(132 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 33"><rect class="hh-px" style="--d: 47" x="181.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(145 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 74"><rect class="hh-px" style="--d: 81" x="201.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(158 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 67"><rect class="hh-px" style="--d: 77" x="221.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(171 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 66"><rect class="hh-px" style="--d: 42" x="241.25" y="41.25" width="17.5" height="17.5" rx="3" fill="hsl(185 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 72"><rect class="hh-px" style="--d: 58" x="1.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(40 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 64"><rect class="hh-px" style="--d: 41" x="21.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(53 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 23"><rect class="hh-px" style="--d: 43" x="41.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(66 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 42"><rect class="hh-px" style="--d: 45" x="61.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(79 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 83"><rect class="hh-px" style="--d: 66" x="101.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(105 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 45"><rect class="hh-px" style="--d: 16" x="121.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(119 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 5"><rect class="hh-px" style="--d: 44" x="141.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(132 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 58"><rect class="hh-px" style="--d: 35" x="181.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(158 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 4"><rect class="hh-px" style="--d: 26" x="201.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(171 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 70"><rect class="hh-px" style="--d: 17" x="221.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(185 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 18"><rect class="hh-px" style="--d: 51" x="241.25" y="61.25" width="17.5" height="17.5" rx="3" fill="hsl(198 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 21"><rect class="hh-px" style="--d: 67" x="1.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(53 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 39"><rect class="hh-px" style="--d: 0" x="21.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(66 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 76"><rect class="hh-px" style="--d: 31" x="41.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(79 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 69"><rect class="hh-px" style="--d: 69" x="61.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(92 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 28"><rect class="hh-px" style="--d: 40" x="81.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(105 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 54"><rect class="hh-px" style="--d: 14" x="101.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(119 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 9"><rect class="hh-px" style="--d: 61" x="121.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(132 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 2"><rect class="hh-px" style="--d: 78" x="141.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(145 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 6"><rect class="hh-px" style="--d: 37" x="161.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(158 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 36"><rect class="hh-px" style="--d: 28" x="181.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(171 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 41"><rect class="hh-px" style="--d: 64" x="201.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(185 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 38"><rect class="hh-px" style="--d: 29" x="221.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(198 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 25"><rect class="hh-px" style="--d: 49" x="241.25" y="81.25" width="17.5" height="17.5" rx="3" fill="hsl(211 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 11"><rect class="hh-px" style="--d: 63" x="21.25" y="101.25" width="17.5" height="17.5" rx="3" fill="hsl(79 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 13"><rect class="hh-px" style="--d: 70" x="41.25" y="101.25" width="17.5" height="17.5" rx="3" fill="hsl(92 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 79"><rect class="hh-px" style="--d: 15" x="61.25" y="101.25" width="17.5" height="17.5" rx="3" fill="hsl(105 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 56"><rect class="hh-px" style="--d: 56" x="101.25" y="101.25" width="17.5" height="17.5" rx="3" fill="hsl(132 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 19"><rect class="hh-px" style="--d: 72" x="121.25" y="101.25" width="17.5" height="17.5" rx="3" fill="hsl(145 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 37"><rect class="hh-px" style="--d: 2" x="141.25" y="101.25" width="17.5" height="17.5" rx="3" fill="hsl(158 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 51"><rect class="hh-px" style="--d: 3" x="181.25" y="101.25" width="17.5" height="17.5" rx="3" fill="hsl(185 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 55"><rect class="hh-px" style="--d: 4" x="201.25" y="101.25" width="17.5" height="17.5" rx="3" fill="hsl(198 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 82"><rect class="hh-px" style="--d: 33" x="221.25" y="101.25" width="17.5" height="17.5" rx="3" fill="hsl(211 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 0"><rect class="hh-px" style="--d: 53" x="41.25" y="121.25" width="17.5" height="17.5" rx="3" fill="hsl(105 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 27"><rect class="hh-px" style="--d: 1" x="61.25" y="121.25" width="17.5" height="17.5" rx="3" fill="hsl(119 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 68"><rect class="hh-px" style="--d: 20" x="81.25" y="121.25" width="17.5" height="17.5" rx="3" fill="hsl(132 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 50"><rect class="hh-px" style="--d: 82" x="161.25" y="121.25" width="17.5" height="17.5" rx="3" fill="hsl(185 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 14"><rect class="hh-px" style="--d: 50" x="181.25" y="121.25" width="17.5" height="17.5" rx="3" fill="hsl(198 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 49"><rect class="hh-px" style="--d: 5" x="201.25" y="121.25" width="17.5" height="17.5" rx="3" fill="hsl(211 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 53"><rect class="hh-px" style="--d: 11" x="61.25" y="141.25" width="17.5" height="17.5" rx="3" fill="hsl(132 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 16"><rect class="hh-px" style="--d: 18" x="81.25" y="141.25" width="17.5" height="17.5" rx="3" fill="hsl(145 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 73"><rect class="hh-px" style="--d: 38" x="101.25" y="141.25" width="17.5" height="17.5" rx="3" fill="hsl(158 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 65"><rect class="hh-px" style="--d: 80" x="121.25" y="141.25" width="17.5" height="17.5" rx="3" fill="hsl(171 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 57"><rect class="hh-px" style="--d: 12" x="141.25" y="141.25" width="17.5" height="17.5" rx="3" fill="hsl(185 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 24"><rect class="hh-px" style="--d: 76" x="161.25" y="141.25" width="17.5" height="17.5" rx="3" fill="hsl(198 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 71"><rect class="hh-px" style="--d: 60" x="181.25" y="141.25" width="17.5" height="17.5" rx="3" fill="hsl(211 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 22"><rect class="hh-px" style="--d: 79" x="81.25" y="161.25" width="17.5" height="17.5" rx="3" fill="hsl(158 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 62"><rect class="hh-px" style="--d: 23" x="101.25" y="161.25" width="17.5" height="17.5" rx="3" fill="hsl(171 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 59"><rect class="hh-px" style="--d: 24" x="121.25" y="161.25" width="17.5" height="17.5" rx="3" fill="hsl(185 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 7"><rect class="hh-px" style="--d: 75" x="141.25" y="161.25" width="17.5" height="17.5" rx="3" fill="hsl(198 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 1"><rect class="hh-px" style="--d: 65" x="161.25" y="161.25" width="17.5" height="17.5" rx="3" fill="hsl(211 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 12"><rect class="hh-px" style="--d: 83" x="101.25" y="181.25" width="17.5" height="17.5" rx="3" fill="hsl(185 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 31"><rect class="hh-px" style="--d: 59" x="121.25" y="181.25" width="17.5" height="17.5" rx="3" fill="hsl(198 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 17"><rect class="hh-px" style="--d: 71" x="141.25" y="181.25" width="17.5" height="17.5" rx="3" fill="hsl(211 86% 57%)"></rect></g><g class="hh-pxg" style="--d: 15"><rect class="hh-px" style="--d: 57" x="121.25" y="201.25" width="17.5" height="17.5" rx="3" fill="hsl(211 86% 57%)"></rect></g></svg>
     </div>
   </section>
 
-  <section id="goal" style="min-height: 600px; box-sizing: border-box; margin: 20px 96px 0; padding: 56px; border-radius: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); display: flex; gap: 52px">
-    <div style="width: 400px; flex-shrink: 0; display: flex; flex-direction: column; gap: 18px">
+  <section id="goal" style="box-sizing: border-box; margin: 20px 96px 0; padding: 56px; border-radius: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); display: flex; flex-direction: column; gap: 32px">
+    <div style="display: flex; flex-direction: column; gap: 18px">
       <h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 44px; line-height: 1.1; font-weight: 700; letter-spacing: -1.2px">What's your next small step?</h2>
-      <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #C9C4DA">Tell us what you're working toward and we'll show you where to start.</p>
-      <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 10px">
-        <button type="button" class="hh-goal" data-goal="money" aria-pressed="false">Take control of my money</button>
-        <button type="button" class="hh-goal" data-goal="create" aria-pressed="false">Publish my book or creative work</button>
-        <button type="button" class="hh-goal" data-goal="wellness" aria-pressed="false">Feel better, body and mind</button>
-        <button type="button" class="hh-goal" data-goal="learn" aria-pressed="false">Learn and keep my mind sharp</button>
-        <button type="button" class="hh-goal" data-goal="everyday" aria-pressed="false">Keep a log of my trips</button>
-        <button type="button" class="hh-goal" data-goal="business" aria-pressed="false">Hear from my website's visitors</button>
+      <p style="margin: 0; max-width: 560px; font-size: 18px; line-height: 1.55; color: #C9C4DA">Tell us what you're working toward and we'll show you where to start.</p>
+      <div class="hh-goals">
+        <button type="button" class="hh-goal" data-goal="money" aria-pressed="false"><span class="hh-goal-art" data-art="bet" aria-hidden="true"></span>Take control of my money</button>
+        <button type="button" class="hh-goal" data-goal="create" aria-pressed="false"><span class="hh-goal-art" data-art="quire" aria-hidden="true"></span>Publish my book or creative work</button>
+        <button type="button" class="hh-goal" data-goal="wellness" aria-pressed="false"><span class="hh-goal-art" data-art="recovery" aria-hidden="true"></span>Feel better, body and mind</button>
+        <button type="button" class="hh-goal" data-goal="learn" aria-pressed="false"><span class="hh-goal-art" data-art="mnemora" aria-hidden="true"></span>Learn and keep my mind sharp</button>
+        <button type="button" class="hh-goal" data-goal="everyday" aria-pressed="false"><span class="hh-goal-art" data-art="travel" aria-hidden="true"></span>Keep a log of my trips</button>
+        <button type="button" class="hh-goal" data-goal="business" aria-pressed="false"><span class="hh-goal-art" data-art="heartforms" aria-hidden="true"></span>Hear from my customers</button>
       </div>
     </div>
-    <div id="hh-panel" style="flex-grow: 1; min-width: 0; position: relative; overflow: hidden; border-radius: 20px; padding: 40px; box-sizing: border-box; background-image: linear-gradient(135deg, #E3D7FA 0%, #FCDAEC 35%, #FFF0C4 70%, #D3F1DF 100%); color: #1A1624; display: flex; flex-direction: column; gap: 14px">
+    <div id="hh-panel" hidden style="position: relative; overflow: hidden; border-radius: 20px; padding: 40px; box-sizing: border-box; background-image: linear-gradient(135deg, #E3D7FA 0%, #FCDAEC 35%, #FFF0C4 70%, #D3F1DF 100%); color: #1A1624; flex-direction: column; gap: 14px">
       <div aria-live="polite" style="display: flex; flex-direction: column; gap: 12px">
-        <div style="font-size: 13px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #5A3FD6" id="hh-tag">Start here</div>
-        <h3 style="margin: 0; font-family: Sora, sans-serif; font-size: 34px; line-height: 1.12; font-weight: 700; letter-spacing: -0.8px" id="hh-title">You bring the goal. We'll show you the first step.</h3>
-        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #2E2A38" id="hh-body">Pick what matters to you right now, and each card here becomes an app to try, with one small thing to do first.</p>
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #5A3FD6" id="hh-tag"></div>
+        <h3 style="margin: 0; font-family: Sora, sans-serif; font-size: 34px; line-height: 1.12; font-weight: 700; letter-spacing: -0.8px" id="hh-title"></h3>
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #2E2A38" id="hh-body"></p>
       </div>
-      <div id="hh-steps" style="display: flex; flex-direction: column; gap: 12px; padding-top: 6px"></div>
+      <div id="hh-steps" style="display: flex; gap: 12px; padding-top: 6px"></div>
       <div style="flex-grow: 1"></div>
       <p style="margin: 0; font-size: 15px; font-weight: 600; color: #2E2A38">Need something we don't make yet? <a href="#custom" style="color: #3A2A9E; font-weight: 800">Talk to us →</a></p>
     </div>
@@ -227,7 +214,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px">
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="bet" aria-hidden="true"></div>
+        <div class="hh-art" data-art="bet" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #E6F4EC; color: #2F9E6E; font-size: 13px; font-weight: 800">Money</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -238,7 +225,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://bet.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open BET <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://bet.happyheartsoftware.com/downloads/BET.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the BET app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="quire" aria-hidden="true"></div>
+        <div class="hh-art" data-art="quire" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #FCEEDB; color: #B45A0E; font-size: 13px; font-weight: 800">Create</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -249,7 +236,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://quire.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Quire <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="pubstar" aria-hidden="true"></div>
+        <div class="hh-art" data-art="pubstar" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #FCEEDB; color: #B45A0E; font-size: 13px; font-weight: 800">Create</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -260,7 +247,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://pubstar.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Pubstar <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://pubstar.happyheartsoftware.com/downloads/Pubstar.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Pubstar app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="fitness" aria-hidden="true"></div>
+        <div class="hh-art" data-art="fitness" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #E5EFF8; color: #2F76B8; font-size: 13px; font-weight: 800">Wellness</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -271,7 +258,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://fitness.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open F&amp;G <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://fitness.happyheartsoftware.com/downloads/FitnessAndGains.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Fitness &amp; Gains app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="recovery" aria-hidden="true"></div>
+        <div class="hh-art" data-art="recovery" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #E5EFF8; color: #2F76B8; font-size: 13px; font-weight: 800">Wellness</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -282,7 +269,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://recovery.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open WAR <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://recovery.happyheartsoftware.com/downloads/WellnessAndRecovery.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Wellness &amp; Recovery app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="oneira" aria-hidden="true"></div>
+        <div class="hh-art" data-art="oneira" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #E5EFF8; color: #2F76B8; font-size: 13px; font-weight: 800">Wellness</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -293,7 +280,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://oneira.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Oneira <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://oneira.happyheartsoftware.com/downloads/Oneira.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Oneira app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="mnemora" aria-hidden="true"></div>
+        <div class="hh-art" data-art="mnemora" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #FFF4CC; color: #8A6100; font-size: 13px; font-weight: 800">Learn</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -304,7 +291,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://mnemora.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Mnemora <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://mnemora.happyheartsoftware.com/downloads/Mnemora.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Mnemora app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="multiflora" aria-hidden="true"></div>
+        <div class="hh-art" data-art="multiflora" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #EFE8F8; color: #7B4FC0; font-size: 13px; font-weight: 800">Play</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -315,7 +302,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://multiflora.app" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Multiflora <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://play.google.com/store/apps/details?id=app.multiflora.android" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Google Play <span aria-hidden="true">↗</span><span class="hh-sr"> (get the Multiflora app for Android on Google Play, opens in a new tab)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="travel" aria-hidden="true"></div>
+        <div class="hh-art" data-art="travel" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #DDF4F1; color: #0F766E; font-size: 13px; font-weight: 800">Everyday</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -326,7 +313,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://travel.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Travel Log <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://travel.happyheartsoftware.com/downloads/DailyTravelLog.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Daily Travel Log app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
-        <div class="hh-art" data-icon="heartforms" aria-hidden="true"></div>
+        <div class="hh-art" data-art="heartforms" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #FDE7EF; color: #B5306A; font-size: 13px; font-weight: 800">Business</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #D8CCFF"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #A88BFF"></span>Early access</span>
@@ -349,17 +336,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div style="display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px">
       <div style="padding: 32px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 12px">
-        <div style="width: 72px; height: 72px; display: flex; align-items: center; justify-content: flex-start"><svg width="72" height="72" viewBox="0 0 60 60" aria-hidden="true"><path d="M28 8 C29.8 22 33.5 26.2 48 30 C33.5 33.8 29.8 38 28 52 C26.2 38 22.5 33.8 8 30 C22.5 26.2 26.2 22 28 8Z" stroke="#6EE08F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M28 20 C28.8 26.5 30.4 28.6 36.5 30 C30.4 31.4 28.8 33.5 28 40" stroke="#6EE08F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M48 5 C48.7 9.6 49.8 10.8 54.4 11.6 C49.8 12.4 48.7 13.6 48 18.2 C47.3 13.6 46.2 12.4 41.6 11.6 C46.2 10.8 47.3 9.6 48 5Z" stroke="#F4E04D" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="11" cy="49" r="2.6" stroke="#F4E04D" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></circle><path d="M50 44 v6 M47 47 h6" stroke="#F4E04D" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div class="hh-why-art" data-art="simple" data-area="Money" aria-hidden="true"></div>
         <h3 style="margin: 0; font-size: 22px; font-weight: 700">Simple by design</h3>
         <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #DDD7EA">Plain language and clear screens, so you can get going without a learning curve.</p>
       </div>
       <div style="padding: 32px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 12px">
-        <div style="width: 72px; height: 72px; display: flex; align-items: center; justify-content: flex-start"><svg width="72" height="72" viewBox="0 0 60 60" aria-hidden="true"><path d="M4 53 H56" stroke="#6EE08F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M5 53 C3 46 11 44 12 50" stroke="#6EE08F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M49 53 C48 47 56 46 56 52" stroke="#6EE08F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M39 22 V14 H44 V26" stroke="#FFB23F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M41.5 10 C39.5 8 43.5 6 41.5 3" stroke="#FFB23F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M8 30 L30 12 L52 30" stroke="#FFB23F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M14 26 V53 M46 26 V53" stroke="#FFB23F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><rect x="18.5" y="33" width="10" height="9" rx="1.5" stroke="#FFB23F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></rect><path d="M23.5 33 V42 M18.5 37.5 H28.5" stroke="#FFB23F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M33 53 V38.5 C33 37.7 33.7 37 34.5 37 H40 C40.8 37 41.5 37.7 41.5 38.5 V53" stroke="#FFB23F" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="39" cy="46" r="0.9" fill="#FFB23F"></circle></svg></div>
+        <div class="hh-why-art" data-art="reallife" data-area="Create" aria-hidden="true"></div>
         <h3 style="margin: 0; font-size: 22px; font-weight: 700">Built for real life</h3>
         <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #DDD7EA">Made for your busy life, with bills, work, family, and dreams to juggle.</p>
       </div>
       <div style="padding: 32px; border-radius: 16px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 12px">
-        <div style="width: 72px; height: 72px; display: flex; align-items: center; justify-content: flex-start"><svg width="72" height="72" viewBox="0 0 60 60" aria-hidden="true"><path d="M30 5 L50 12 V28 C50 40.5 41.5 49.5 30 54 C18.5 49.5 10 40.5 10 28 V12 Z" stroke="#4FB3FF" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><path d="M30 11 L44.5 16.2 V28 C44.5 37.6 38.4 44.6 30 48.2" stroke="#4FB3FF" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path><polyline points="21 29.5 27.5 36 39.5 23.5" stroke="#FFFFFF" fill="none" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></polyline><path d="M53 5 l2.5 -2.5 M55.5 10 h3.5 M5 5 l-2.5 -2.5" stroke="#FFFFFF" fill="none" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"></path></svg></div>
+        <div class="hh-why-art" data-art="data" data-area="Wellness" aria-hidden="true"></div>
         <h3 style="margin: 0; font-size: 22px; font-weight: 700">Your data, respected</h3>
         <p style="margin: 0; font-size: 17px; line-height: 1.6; color: #DDD7EA">Your finances and wellbeing are personal. We protect them like they're our own. <a href="privacy.html" style="color: #F3D98B">Our privacy promise</a></p>
       </div>
@@ -509,7 +496,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </div>
 <script>
 (function () {
-  /* Pixel illustrations on the heart's 13 × 11 grid. Each letter is a color in pal; dots are empty. */
+  /* Pixel pictures the hero heart turns into, on its 13 × 11 grid. Each letter is a color in pal; dots are empty. */
   var ICONS = {
     bet: { pal: { Y: 'hsl(46 96% 60%)', y: 'hsl(40 96% 72%)', G: 'hsl(146 70% 50%)', g: 'hsl(146 80% 66%)', d: 'hsl(160 40% 40%)' }, map: [
       '.yy..........', 'yYYY.........', 'yYYY......gg.', '.YY.......GG.', '..........GG.', '.......gg.GG.',
@@ -540,35 +527,62 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       '.PpPP.p.PPpP.', '..PP.PpP.PP..', '.....PPP.....', '......g......', '......g......'] },
     heartforms: { pal: { H: 'hsl(340 85% 62%)', e: 'hsl(330 50% 78%)' }, map: [
       '....HH.HH....', '...HHHHHHH...', '....HHHHH....', '.....HHH.....', 'eeeeee.eeeeee', 'ee.........ee',
-      'e.e.......e.e', 'e..ee...ee..e', 'e....eee....e', 'e...........e', 'eeeeeeeeeeeee'] },
-    custom: { pal: { b: 'hsl(190 80% 60%)', H: 'hsl(340 85% 62%)', h: 'hsl(20 90% 60%)' }, map: [
-      '.bbbbbbbbbbb.', 'b...........b', 'b...HH.hh...b', 'b..HHHHhhh..b', 'b...HHhhh...b', 'b....Hhh....b',
-      'b.....h.....b', 'b...........b', '.bbb.bbbbbbb.', '...b.b.......', '...bb........'] }
+      'e.e.......e.e', 'e..ee...ee..e', 'e....eee....e', 'e...........e', 'eeeeeeeeeeeee'] }
   };
-  /* step: the first small thing to do, shown on the goal cards. chip: a shorter version for the hero. */
+  /* Line drawings behind the app and goal cards, on a 200 × 150 canvas. Lines draw in the area's
+     ink; class a uses its accent, and class f is a soft accent wash behind the drawing. */
+  var ART = {
+    bet: '<circle class="f" cx="158" cy="104" r="34"/><rect x="34" y="20" width="96" height="116" rx="10"/><path d="M34 42h-8M34 66h-8M34 90h-8M34 114h-8"/><path d="M50 44h62M50 60h44M50 76h54"/><path class="a" d="M50 118l18-14 16 6 26-22"/><path class="a" d="M100 86l10 2-2 10"/><ellipse cx="160" cy="100" rx="24" ry="8"/><path d="M136 100v24a24 8 0 0 0 48 0v-24"/><path d="M136 112a24 8 0 0 0 48 0"/>',
+    quire: '<circle class="f" cx="100" cy="86" r="52"/><path d="M100 50C82 40 56 38 30 44v82c26-6 52-4 70 6"/><path d="M100 50c18-10 44-12 70-6v82c-26-6-52-4-70 6"/><path d="M100 50v82"/><path d="M44 64c14-3 28-3 42 2M44 80c14-3 28-3 42 2M44 96c14-3 28-3 42 2M44 112c10-2 20-2 30 0"/><path d="M114 66c14-5 28-5 42-2M114 82c14-5 28-5 42-2M114 98c14-5 28-5 42-2"/><path class="a" d="M146 41v30l6-6 6 6V42"/><path class="a" d="M100 12v14M93 19h14"/>',
+    pubstar: '<circle class="f" cx="100" cy="72" r="50"/><path d="M100 24l11.8 29.8 31.9 2-24.7 20.4 8 31-27-17.2-27 17.2 8-31-24.7-20.4 31.9-2z"/><path class="a" d="M160 20v16M152 28h16M40 30v12M34 36h12M164 96v10M159 101h10"/><path d="M24 138h152"/><path d="M36 138v-26h12v26M50 138v-34h12v34M140 138v-20h14v20"/><path class="a" d="M158 138l6-24 10 3-6 21"/>',
+    fitness: '<circle class="f" cx="150" cy="62" r="34"/><path class="a" d="M14 58h34l8-16 10 32 8-24 6 8h22"/><path d="M150 44c-12-10-30-4-30 14 0 18 14 30 26 24 3-2 5-2 8 0 12 6 26-6 26-24 0-18-18-24-30-14z"/><path d="M150 44c0-8 2-14 6-18"/><path class="a" d="M154 34c6-8 16-8 20-4-6 6-14 8-20 4z"/><path d="M56 116h68"/><rect x="42" y="98" width="14" height="36" rx="4"/><rect x="30" y="104" width="10" height="24" rx="3"/><rect x="124" y="98" width="14" height="36" rx="4"/><rect x="140" y="104" width="10" height="24" rx="3"/>',
+    recovery: '<circle class="f" cx="100" cy="72" r="50"/><circle class="a" cx="46" cy="38" r="12"/><path class="a" d="M46 16v-6M46 60v6M24 38h-6M68 38h6M30 22l-4-4M62 22l4-4M30 54l-4 4M62 54l4 4"/><path d="M100 96c0-16 0-30 2-46"/><path d="M100 78c-16 0-28-10-30-24 16 0 28 10 30 24z"/><path d="M102 62c14-2 24-14 26-28-16 2-24 12-26 28z"/><path d="M66 96h68v10H66z"/><path d="M72 106l8 34h40l8-34"/><path d="M28 140h144"/>',
+    oneira: '<circle class="f" cx="110" cy="72" r="46"/><path d="M124 24a48 48 0 1 0 46 64 42 42 0 0 1-46-64z"/><path class="a" d="M58 30v14M51 37h14M172 30v10M167 35h10M160 120v8M156 124h8"/><path d="M22 132c0-12 12-18 22-14 4-12 22-14 28-2 12-2 18 8 14 16z"/>',
+    mnemora: '<circle class="f" cx="92" cy="86" r="48"/><rect x="58" y="30" width="100" height="64" rx="8" transform="rotate(-8 108 62)"/><rect x="34" y="58" width="104" height="70" rx="8"/><path d="M52 80h56M52 96h40"/><path class="a" d="M108 108l8 8 14-16"/><path d="M176 30c-12 0-20 8-20 19 0 9 6 13 9 20h22c3-7 9-11 9-20 0-11-8-19-20-19z"/><path d="M167 78h18M169 86h14"/><path class="a" d="M176 4v8M200 18l-6 6M152 18l6 6"/>',
+    multiflora: '<circle class="f" cx="126" cy="62" r="42"/><rect x="24" y="92" width="18" height="18" rx="3"/><rect x="42" y="92" width="18" height="18" rx="3"/><rect x="42" y="110" width="18" height="18" rx="3"/><rect x="60" y="110" width="18" height="18" rx="3"/><rect x="78" y="110" width="18" height="18" rx="3"/><rect x="42" y="128" width="18" height="18" rx="3"/>' +
+      [0, 60, 120, 180, 240, 300].map(function (a) { return '<ellipse cx="126" cy="38" rx="11" ry="16" transform="rotate(' + a + ' 126 62)"/>'; }).join('') +
+      '<circle class="a" cx="126" cy="62" r="9"/><path d="M126 102c0 14-2 26 0 38"/><path d="M126 124c-12-8-26-6-32 2 12 6 24 6 32-2z"/>',
+    travel: '<circle class="f" cx="150" cy="40" r="30"/><path d="M20 50l44-12 44 12 44-12v84l-44 12-44-12-44 12z"/><path d="M64 38v84M108 50v84"/><path class="a" d="M38 112c20-8 22-30 44-28s26-22 64-20"/><circle class="a" cx="38" cy="112" r="4"/><path d="M150 64c-10-14-16-22-16-30a16 16 0 0 1 32 0c0 8-6 16-16 30z"/><circle cx="150" cy="34" r="6"/>',
+    heartforms: '<circle class="f" cx="64" cy="98" r="40"/><rect x="120" y="18" width="70" height="96" rx="8"/><path d="M132 38h46M132 54h46M132 70h28"/><rect class="a" x="132" y="84" width="10" height="10" rx="2"/><path d="M148 89h28"/><rect x="18" y="74" width="96" height="64" rx="8"/><path d="M18 80l48 34 48-34"/><path class="a" d="M62 52c0-8-10-12-15-5-5-7-15-3-15 5 0 10 15 18 15 18s15-8 15-18z"/>',
+    /* Why common sense */
+    simple: '<circle class="f" cx="100" cy="76" r="52"/><rect x="66" y="14" width="68" height="126" rx="12"/><path d="M90 26h20"/><path d="M80 50h40M80 64h28"/><rect class="a" x="80" y="98" width="40" height="18" rx="9"/><path class="a" d="M158 30v16M150 38h16M38 92v12M32 98h12M168 112v8M164 116h8"/>',
+    reallife: '<circle class="f" cx="92" cy="84" r="52"/><path d="M38 80l52-44 52 44"/><path d="M50 70v62h80V70"/><path class="a" d="M116 54V36h10v28"/><rect x="60" y="86" width="22" height="20" rx="3"/><path d="M71 86v20M60 96h22"/><path d="M98 132v-30h18v30"/><path d="M20 132h162"/><path class="a" d="M148 104h22v16a10 10 0 0 1-10 10h-2a10 10 0 0 1-10-10z"/><path class="a" d="M170 108h3a6 6 0 0 1 0 12h-3"/><path class="a" d="M155 96c-2-4 2-6 0-10M163 96c-2-4 2-6 0-10"/>',
+    data: '<circle class="f" cx="100" cy="74" r="52"/><path d="M100 14l46 16v36c0 32-19 52-46 64-27-12-46-32-46-64V30z"/><path d="M100 26l34 12v28c0 24-14 40-34 50"/><path class="a" d="M80 72l14 14 26-28"/><path class="a" d="M34 30v12M28 36h12M166 24v10M161 29h10"/><circle cx="164" cy="112" r="9"/><path d="M157 119l-16 16M146 130l5 5M151 125l5 5"/>'
+  };
+  /* Ink and accent for each area: bright on the dark app cards, deeper on the light goal cards. */
+  var TONES = {
+    Money: { dark: ['#7BE3AE', '#FFD166'], light: ['#2F9E6E', '#C98A00'] },
+    Create: { dark: ['#FFB073', '#FF8FB8'], light: ['#B45A0E', '#C2416E'] },
+    Wellness: { dark: ['#8DC2F7', '#7BE3AE'], light: ['#2F76B8', '#1F8A5B'] },
+    Dreams: { dark: ['#B3B6FF', '#FFD166'], light: ['#4F55C9', '#C98A00'] },
+    Learn: { dark: ['#F4CF5D', '#8DC2F7'], light: ['#8A6100', '#2F76B8'] },
+    Everyday: { dark: ['#5FD6C8', '#FFB073'], light: ['#0F766E', '#C25A12'] },
+    Play: { dark: ['#C3A6FF', '#FF8FB8'], light: ['#7B4FC0', '#C2416E'] },
+    Business: { dark: ['#FF9CC2', '#C3A6FF'], light: ['#B5306A', '#6B45B8'] }
+  };
+  /* step: the first small thing to do, shown on the goal cards. cap: a shorter version for the hero caption. */
   var APPS = {
-    bet: { name: 'BET', tagline: 'Budget & Expense Tracker', url: 'https://bet.happyheartsoftware.com', apk: 'https://bet.happyheartsoftware.com/downloads/BET.apk',
-      step: 'Start a ledger and add what you spent today. It lives in your own Google Drive.', chip: 'Add today’s spending' },
-    quire: { name: 'Quire', tagline: 'Book formatting', url: 'https://quire.happyheartsoftware.com',
-      step: 'Upload your finished manuscript and preview the print-ready PDF. Invite only for now.', chip: 'Preview your book as a PDF' },
-    pubstar: { name: 'Pubstar', tagline: 'Publishing for creators', url: 'https://pubstar.happyheartsoftware.com', apk: 'https://pubstar.happyheartsoftware.com/downloads/Pubstar.apk',
-      step: 'Publishing with the Pubstar studio? Sign in to see every place your work is sold.', chip: 'See where your work is sold' },
-    fitness: { name: 'Fitness & Gains', short: 'F&G', tagline: 'Food, training & wellness', url: 'https://fitness.happyheartsoftware.com', apk: 'https://fitness.happyheartsoftware.com/downloads/FitnessAndGains.apk',
-      step: 'Log one meal or one workout today. No account needed.', chip: 'Log today’s lunch' },
-    recovery: { name: 'Wellness & Recovery', short: 'WAR', tagline: 'Daily recovery companion', url: 'https://recovery.happyheartsoftware.com', apk: 'https://recovery.happyheartsoftware.com/downloads/WellnessAndRecovery.apk',
-      step: 'Do a two-minute check-in and plan one small thing for today.', chip: 'Do a two-minute check-in' },
-    oneira: { name: 'Oneira', tagline: 'Learn to lucid dream', url: 'https://oneira.happyheartsoftware.com', apk: 'https://oneira.happyheartsoftware.com/downloads/Oneira.apk',
-      step: 'Tomorrow morning, write down whatever you remember of your dream.', chip: 'Write down last night’s dream' },
-    mnemora: { name: 'Mnemora', tagline: 'Study with flashcards', url: 'https://mnemora.happyheartsoftware.com', apk: 'https://mnemora.happyheartsoftware.com/downloads/Mnemora.apk',
-      step: 'Take one short lesson. Its flashcards come back right when you’re about to forget.', chip: 'Review ten flashcards' },
-    multiflora: { name: 'Multiflora', tagline: 'Word puzzles', url: 'https://multiflora.app', play: 'https://play.google.com/store/apps/details?id=app.multiflora.android',
-      step: 'Play one Rows Garden, the flower-shaped crossword.', chip: 'Solve a Rows Garden puzzle' },
-    travel: { name: 'Daily Travel Log', short: 'Travel Log', tagline: 'Travel tracking', url: 'https://travel.happyheartsoftware.com', apk: 'https://travel.happyheartsoftware.com/downloads/DailyTravelLog.apk',
-      step: 'Log today’s trip in a few taps, and export the log whenever you need it.', chip: 'Log today’s drive' },
-    heartforms: { name: 'Heartforms', tagline: 'Forms for any website', url: 'https://forms.happyheartsoftware.com', open: 'Learn more', ask: '#help',
-      step: 'Ask us for early access, then point your site’s contact form at it.', chip: 'Get your contact form’s messages' },
-    custom: { name: 'Custom software', tagline: 'Made for your business', url: '#custom', open: 'Tell us what you need', local: true,
-      step: 'Something bigger in mind? We build websites and custom software for small businesses.' }
+    bet: { area: 'Money', name: 'BET', tagline: 'Budget & Expense Tracker', url: 'https://bet.happyheartsoftware.com', apk: 'https://bet.happyheartsoftware.com/downloads/BET.apk',
+      step: 'Start a ledger and add what you spent today. It lives in your own Google Drive.', cap: 'Add today’s spending' },
+    quire: { area: 'Create', name: 'Quire', tagline: 'Book formatting', url: 'https://quire.happyheartsoftware.com',
+      step: 'Upload your finished manuscript and preview the print-ready PDF. Invite only for now.', cap: 'Preview your book as a PDF' },
+    pubstar: { area: 'Create', name: 'Pubstar', tagline: 'Publishing for creators', url: 'https://pubstar.happyheartsoftware.com', apk: 'https://pubstar.happyheartsoftware.com/downloads/Pubstar.apk',
+      step: 'Publishing with the Pubstar studio? Sign in to see every place your work is sold.', cap: 'See where your work is sold' },
+    fitness: { area: 'Wellness', name: 'Fitness & Gains', short: 'F&G', tagline: 'Food, training & wellness', url: 'https://fitness.happyheartsoftware.com', apk: 'https://fitness.happyheartsoftware.com/downloads/FitnessAndGains.apk',
+      step: 'Log one meal or one workout today. No account needed.', cap: 'Log today’s lunch' },
+    recovery: { area: 'Wellness', name: 'Wellness & Recovery', short: 'WAR', tagline: 'Daily recovery companion', url: 'https://recovery.happyheartsoftware.com', apk: 'https://recovery.happyheartsoftware.com/downloads/WellnessAndRecovery.apk',
+      step: 'Do a two-minute check-in and plan one small thing for today.', cap: 'Do a two-minute check-in' },
+    oneira: { area: 'Dreams', name: 'Oneira', tagline: 'Learn to lucid dream', url: 'https://oneira.happyheartsoftware.com', apk: 'https://oneira.happyheartsoftware.com/downloads/Oneira.apk',
+      step: 'Tomorrow morning, write down whatever you remember of your dream.', cap: 'Write down last night’s dream' },
+    mnemora: { area: 'Learn', name: 'Mnemora', tagline: 'Study with flashcards', url: 'https://mnemora.happyheartsoftware.com', apk: 'https://mnemora.happyheartsoftware.com/downloads/Mnemora.apk',
+      step: 'Take one short lesson. Its flashcards come back right when you’re about to forget.', cap: 'Review ten flashcards' },
+    multiflora: { area: 'Play', name: 'Multiflora', tagline: 'Word puzzles', url: 'https://multiflora.app', play: 'https://play.google.com/store/apps/details?id=app.multiflora.android',
+      step: 'Play one Rows Garden, the flower-shaped crossword.', cap: 'Solve a Rows Garden puzzle' },
+    travel: { area: 'Everyday', name: 'Daily Travel Log', short: 'Travel Log', tagline: 'Travel tracking', url: 'https://travel.happyheartsoftware.com', apk: 'https://travel.happyheartsoftware.com/downloads/DailyTravelLog.apk',
+      step: 'Log today’s trip in a few taps, and export the log whenever you need it.', cap: 'Log today’s drive' },
+    heartforms: { area: 'Business', name: 'Heartforms', tagline: 'Forms for any website', url: 'https://forms.happyheartsoftware.com', open: 'Learn more', ask: '#help',
+      step: 'Ask us for early access, then point your site’s contact form at it.', cap: 'Get your contact form’s messages' },
+
   };
   var GOALS = [
       { id: 'money', pillar: 'Money', ring: '#2F9E6E', panel: 'linear-gradient(135deg, #D3F1DF 0%, #FFF0C4 100%)', apps: ['bet'],
@@ -581,71 +595,52 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         title: 'A little learning every day', body: 'Study any subject with lessons and flashcards that remember for you, or unwind with a word puzzle.' },
       { id: 'everyday', pillar: 'Everyday', ring: '#0F766E', panel: 'linear-gradient(135deg, #CFF3EE 0%, #D9ECFB 100%)', apps: ['travel'],
         title: 'Every trip, written down', body: 'A simple, readable record of where you went, ready for expenses or taxes.' },
-      { id: 'business', pillar: 'Business', ring: '#B5306A', panel: 'linear-gradient(135deg, #FCD9E6 0%, #E9DDFB 100%)', apps: ['heartforms', 'custom'],
+      { id: 'business', pillar: 'Business', ring: '#B5306A', panel: 'linear-gradient(135deg, #FCD9E6 0%, #E9DDFB 100%)', apps: ['heartforms'],
         title: 'Never miss a message from your site', body: 'Contact forms, sign-ups and RSVPs, saved and emailed to the right person.' }
     ];
-  var OVERVIEW = { tag: 'Start here', ring: '#5A3FD6',
-      panel: 'linear-gradient(135deg, #E3D7FA 0%, #FCDAEC 35%, #FFF0C4 70%, #D3F1DF 100%)',
-      title: 'You bring the goal. We’ll show you the first step.',
-      body: 'Pick what matters to you right now, and each card here becomes an app to try, with one small thing to do first.' };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hero = document.getElementById('hh-hero');
 
-  /* Pixel grids */
+  /* Line drawings: each one draws itself in when hh-drawn is added */
   var NS = 'http://www.w3.org/2000/svg';
-  function cells(id) {
-    var ic = ICONS[id], out = [];
-    ic.map.forEach(function (row, y) {
-      for (var x = 0; x < row.length; x++) if (row[x] !== '.') out.push({ x: x, y: y, fill: ic.pal[row[x]] });
-    });
-    return out;
-  }
-  var HEART = Array.prototype.map.call(hero.querySelectorAll('.hh-px'), function (r) {
-    return { x: Math.round((r.getAttribute('x') - 1.25) / 20), y: Math.round((r.getAttribute('y') - 1.25) / 20), fill: r.getAttribute('fill') };
-  });
-  function grid() {
-    var svg = document.createElementNS(NS, 'svg');
-    svg.setAttribute('viewBox', '0 0 260 220');
+  function lineArt(id, area, tone, viewBox) {
+    var svg = document.createElementNS(NS, 'svg'), colors = TONES[area][tone];
+    svg.setAttribute('viewBox', viewBox || '0 0 200 150');
     svg.setAttribute('aria-hidden', 'true');
-    svg.setAttribute('class', 'hh-grid');
-    for (var y = 0; y < 11; y++) for (var x = 0; x < 13; x++) {
-      var r = document.createElementNS(NS, 'rect');
-      r.setAttribute('x', x * 20 + 1.25); r.setAttribute('y', y * 20 + 1.25);
-      r.setAttribute('width', 17.5); r.setAttribute('height', 17.5); r.setAttribute('rx', 3);
-      r.setAttribute('class', 'off');
-      r.style.setProperty('--d', x + y);
-      svg.appendChild(r);
-    }
+    svg.setAttribute('class', 'hh-line');
+    svg.innerHTML = ART[id];
+    svg.style.setProperty('--ink', colors[0]);
+    svg.style.setProperty('--acc', colors[1]);
+    Array.prototype.forEach.call(svg.querySelectorAll('path:not(.f), rect, circle:not(.f), ellipse, line, polyline'), function (e, i) {
+      e.setAttribute('pathLength', 1);
+      e.classList.add('s');
+      e.style.setProperty('--i', i);
+    });
     return svg;
   }
-  /* Lights up the given cells: 'on' in their colors, or 'ghost' as dashed outlines. */
-  function paint(svg, list, mode) {
-    var on = {};
-    list.forEach(function (c) { on[c.y * 13 + c.x] = c; });
-    Array.prototype.forEach.call(svg.children, function (r, i) {
-      var c = on[i];
-      r.setAttribute('class', c ? mode : 'off');
-      r.style.fill = c && mode === 'on' ? c.fill : '';
-    });
-    if (mode === 'on' && !reduce) {
-      svg.classList.remove('hh-pop'); void svg.getBoundingClientRect(); svg.classList.add('hh-pop');
-    }
-  }
-  function glow(id) {
-    var c = cells(id)[0].fill.replace(')', ' / 0.32)');
-    return 'radial-gradient(circle at 50% 55%, ' + c + ' 0%, rgba(0,0,0,0) 72%), #241D4F';
+  function draw(svg) {
+    void svg.getBoundingClientRect();
+    svg.classList.add('hh-drawn');
   }
 
-  /* Illustrations on the app cards */
-  Array.prototype.forEach.call(document.querySelectorAll('.hh-art'), function (el) {
-    var id = el.getAttribute('data-icon'), svg = grid();
-    paint(svg, cells(id), 'on');
-    svg.classList.remove('hh-pop');
-    el.style.background = glow(id);
-    el.appendChild(svg);
+  /* Drawings on the goal tiles, app cards and Why common sense, drawn in as they scroll into view */
+  var arts = Array.prototype.map.call(document.querySelectorAll('[data-art]'), function (box) {
+    var id = box.getAttribute('data-art'), svg = lineArt(id, box.getAttribute('data-area') || APPS[id].area, 'dark');
+    box.appendChild(svg);
+    return svg;
   });
+  if (!reduce && 'IntersectionObserver' in window) {
+    var artSeen = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        draw(e.target);
+        artSeen.unobserve(e.target);
+      });
+    }, { threshold: 0.35 });
+    arts.forEach(function (svg) { artSeen.observe(svg); });
+  } else arts.forEach(draw);
 
-  /* Goal picker: three cards that start as heart outlines and become the apps for the goal */
+  /* Goal picker: picking a tile opens a panel with a card for each app, drawn in behind its first step */
   var panel = document.getElementById('hh-panel');
   var tag = document.getElementById('hh-tag');
   var title = document.getElementById('hh-title');
@@ -660,12 +655,23 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     return e;
   }
   var slots = [0, 1, 2].map(function () {
-    var card = el('article', 'hh-step hh-ghost'), art = el('div', 'hh-step-art'), text = el('div', 'hh-step-text'), svg = grid();
-    art.appendChild(svg); card.appendChild(art); card.appendChild(text); stepsEl.appendChild(card);
-    return { card: card, art: art, svg: svg, text: text };
+    var card = el('article', 'hh-step'), bg = el('div', 'hh-step-bg'), text = el('div', 'hh-step-text');
+    bg.setAttribute('aria-hidden', 'true');
+    card.appendChild(bg); card.appendChild(text); stepsEl.appendChild(card);
+    return { card: card, bg: bg, text: text, art: null };
   });
-  function skeleton(text) {
-    text.innerHTML = '<div class="hh-sk" aria-hidden="true"><span style="width: 38%"></span><span style="width: 86%"></span><span style="width: 64%"></span></div>';
+  /* The old drawing un-draws while the new one draws in */
+  function setArt(s, id, area) {
+    if (s.art === id) return;
+    s.art = id;
+    Array.prototype.forEach.call(s.bg.children, function (old) {
+      old.classList.remove('hh-drawn');
+      setTimeout(function () { old.remove(); }, 700);
+    });
+    var svg = lineArt(id, area, 'light');
+    s.bg.appendChild(svg);
+    if (reduce) draw(svg);
+    else setTimeout(function () { draw(svg); }, 250);
   }
   function link(href, label, sr, cls) {
     var a = el('a', cls, label);
@@ -681,30 +687,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     head.appendChild(el('h4', null, app.name));
     head.appendChild(el('span', null, app.tagline));
     var p = el('p', 'hh-step-do');
-    var first = el('strong', null, app.local ? 'Next step ' : 'First step ');
+    var first = el('strong', null, 'First step ');
     first.style.color = ring;
     p.appendChild(first); p.appendChild(document.createTextNode(app.step));
     var links = el('div', 'hh-step-links');
-    links.appendChild(link(app.url, (app.open || 'Open ' + (app.short || app.name)) + (app.local ? ' →' : ' ↗'), app.local ? '' : ' (opens in a new tab)', 'hh-btn'));
+    links.appendChild(link(app.url, (app.open || 'Open ' + (app.short || app.name)) + ' ↗', ' (opens in a new tab)', 'hh-btn'));
     if (app.apk) { var d = link(app.apk, 'Android app ↓', ' (download the ' + app.name + ' app for Android)', 'hh-btn2'); d.setAttribute('download', ''); links.appendChild(d); }
     if (app.play) links.appendChild(link(app.play, 'Google Play ↗', ' (get ' + app.name + ' on Google Play, opens in a new tab)', 'hh-btn2'));
     if (app.ask) links.appendChild(link(app.ask, 'Ask for access', '', 'hh-btn2'));
     text.appendChild(head); text.appendChild(p); text.appendChild(links);
   }
   function showGoal(g) {
-    var cur = g ? { tag: 'For you · ' + g.pillar, ring: g.ring, panel: g.panel, title: g.title, body: g.body } : OVERVIEW;
-    panel.style.backgroundImage = cur.panel;
-    tag.textContent = cur.tag; tag.style.color = cur.ring;
-    title.textContent = cur.title;
-    bodyEl.textContent = cur.body;
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', g && b.getAttribute('data-goal') === g.id ? 'true' : 'false'); });
+    panel.hidden = !g;
+    if (!g) return;
+    panel.style.backgroundImage = g.panel;
+    tag.textContent = 'For you · ' + g.pillar; tag.style.color = g.ring;
+    title.textContent = g.title;
+    bodyEl.textContent = g.body;
     slots.forEach(function (s, i) {
       var id = g && g.apps[i];
-      s.card.hidden = !!g && !id;
-      s.card.classList.toggle('hh-ghost', !g);
-      if (id) { paint(s.svg, cells(id), 'on'); s.art.style.background = glow(id); fill(s.text, id, g.ring); }
-      else if (!g) { paint(s.svg, HEART, 'ghost'); s.art.style.background = ''; skeleton(s.text); }
+      s.card.hidden = !id;
+      if (id) { setArt(s, id, APPS[id].area); fill(s.text, id, g.ring); }
     });
-    buttons.forEach(function (b) { b.setAttribute('aria-pressed', g && b.getAttribute('data-goal') === g.id ? 'true' : 'false'); });
   }
   function goalOf(id) { return GOALS.filter(function (g) { return g.apps.indexOf(id) !== -1; })[0]; }
   function pickGoal(g) { picked = g ? g.id : null; showGoal(g); }
@@ -712,105 +717,60 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     b.addEventListener('click', function () {
       var id = b.getAttribute('data-goal');
       pickGoal(picked === id ? null : GOALS.filter(function (g) { return g.id === id; })[0]);
+      if (picked) panel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
     });
   });
-  showGoal(null);
 
-  /* Hero: rotating first steps from the apps (default), or ?hero=morph for the heart that turns into each app */
-  var HERO_APPS = Object.keys(APPS).filter(function (id) { return APPS[id].chip; });
+  /* Hero: the heart's voxels rearrange into each app's pixel picture in turn, then back into the heart */
   var heroVisible = true, paused = false;
   hero.addEventListener('mouseenter', function () { paused = true; });
   hero.addEventListener('mouseleave', function () { paused = false; });
   hero.addEventListener('focusin', function () { paused = true; });
   hero.addEventListener('focusout', function () { paused = false; });
-  function every(ms, fn) { if (!reduce) setInterval(function () { if (!paused && heroVisible && !document.hidden) fn(); }, ms); }
-
-  if (/[?&]hero=morph\b/.test(location.search)) {
-    var vox = Array.prototype.map.call(hero.querySelectorAll('.hh-px'), function (r, i) { return { el: r, x: HEART[i].x, y: HEART[i].y }; })
-      .sort(function (a, b) { return a.y - b.y || a.x - b.x; });
-    hero.classList.add('hh-morph');
-    var cap = el('a', 'hh-cap');
-    cap.href = '#goal';
-    hero.appendChild(cap);
-    var seq = HERO_APPS.concat([null]), shown = -1, capTimer;
-    function morph(id) {
-      var target = id && cells(id);
-      vox.forEach(function (v, i) {
-        var t = target ? target[i] : v;
-        v.el.style.scale = t ? '' : '0';
-        v.el.style.opacity = t ? '' : '0';
-        if (!t) return;
-        v.el.style.translate = (t.x - v.x) * 20 + 'px ' + (t.y - v.y) * 20 + 'px';
-        v.el.style.fill = target ? t.fill : '';
-      });
-      /* The caption fades out while the voxels move, and back in once they've settled */
-      cap.classList.remove('hh-cap-on');
-      cap.tabIndex = -1;
-      clearTimeout(capTimer);
-      if (id) capTimer = setTimeout(function () {
-        cap.textContent = APPS[id].name + ' · ' + APPS[id].chip + ' →';
-        cap.setAttribute('data-app', id);
-        cap.classList.add('hh-cap-on');
-        cap.tabIndex = 0;
-      }, 900);
-    }
-    cap.addEventListener('click', function () { pickGoal(goalOf(cap.getAttribute('data-app'))); });
-    cap.tabIndex = -1;
-    setTimeout(function () {
-      every(3400, function () { shown = (shown + 1) % seq.length; morph(seq[shown]); });
-    }, 1400);
-  } else {
-    var SLOTS = [
-        ['left: -48px; top: 56px', 'right: -40px; bottom: 56px'],
-        ['right: -48px; top: 110px', 'left: -24px; bottom: 96px'],
-        ['left: 120px; top: -20px', 'left: 130px; bottom: -22px'],
-        ['left: -48px; top: 56px', 'right: -48px; top: 150px'],
-        ['left: -24px; bottom: 96px', 'right: -40px; bottom: 30px'],
-        ['left: 120px; top: -20px', 'right: -40px; bottom: 56px'],
-        ['right: -48px; top: 110px', 'left: 130px; bottom: -22px']
-      ];
-    if (window.matchMedia && window.matchMedia('(max-width: 560px)').matches) {
-      SLOTS = [['left: -44px; top: 4%', 'right: -44px; bottom: 6%'], ['right: -44px; top: 4%', 'left: -44px; bottom: 6%']];
-    }
-    var current = null, currentSlot = -1, swaps = 0, nodes = [];
-    function pick(prev, prevSlot) {
-      var n = HERO_APPS.length, a, b, slot;
-      do {
-        a = Math.floor(Math.random() * n);
-        b = Math.floor(Math.random() * n);
-      } while (a === b || goalOf(HERO_APPS[a]) === goalOf(HERO_APPS[b]) || (prev && (prev.indexOf(a) !== -1 || prev.indexOf(b) !== -1)));
-      do { slot = Math.floor(Math.random() * SLOTS.length); } while (slot === prevSlot);
-      return { idx: [a, b], slot: slot };
-    }
-    function chip(id, pos, k) {
-      var app = APPS[id], c = el('a', 'hh-badge ' + (swaps % 2 === 0 ? 'hh-bA' : 'hh-bB'));
-      c.href = '#goal';
-      c.setAttribute('style', 'position: absolute; ' + pos + '; animation-delay: ' + (swaps === 0 ? (k === 0 ? '1.55s' : '1.8s') : (k === 0 ? '0s' : '0.12s')));
-      var icon = el('div', 'hh-badge-art'), svg = grid();
-      paint(svg, cells(id), 'on'); svg.classList.remove('hh-pop');
-      icon.style.background = glow(id);
-      icon.appendChild(svg);
-      var txt = el('div', 'hh-badge-text');
-      txt.appendChild(el('span', null, app.chip));
-      txt.appendChild(el('span', null, app.name));
-      c.appendChild(icon); c.appendChild(txt);
-      c.addEventListener('click', function () { pickGoal(goalOf(id)); });
-      return c;
-    }
-    function renderChips() {
-      nodes.forEach(function (n) { n.remove(); });
-      nodes = current.idx.map(function (i, k) {
-        var c = chip(HERO_APPS[i], SLOTS[currentSlot][k], k);
-        hero.appendChild(c);
-        return c;
-      });
-    }
-    current = pick(null, -1); currentSlot = current.slot; renderChips();
-    every(5000, function () {
-      var next = pick(current.idx, currentSlot);
-      current = next; currentSlot = next.slot; swaps++; renderChips();
+  function cells(id) {
+    var ic = ICONS[id], out = [];
+    ic.map.forEach(function (row, y) {
+      for (var x = 0; x < row.length; x++) if (row[x] !== '.') out.push({ x: x, y: y, fill: ic.pal[row[x]] });
     });
+    return out;
   }
+  var vox = Array.prototype.map.call(hero.querySelectorAll('.hh-px'), function (r) {
+    return { el: r, x: Math.round((r.getAttribute('x') - 1.25) / 20), y: Math.round((r.getAttribute('y') - 1.25) / 20) };
+  }).sort(function (a, b) { return a.y - b.y || a.x - b.x; });
+  var cap = el('a', 'hh-cap');
+  cap.href = '#goal';
+  cap.tabIndex = -1;
+  hero.appendChild(cap);
+  var seq = Object.keys(ICONS).concat([null]), shown = -1, capTimer;
+  function morph(id) {
+    var target = id && cells(id);
+    vox.forEach(function (v, i) {
+      var t = target ? target[i] : v;
+      v.el.style.scale = t ? '' : '0';
+      v.el.style.opacity = t ? '' : '0';
+      if (!t) return;
+      v.el.style.translate = (t.x - v.x) * 20 + 'px ' + (t.y - v.y) * 20 + 'px';
+      v.el.style.fill = target ? t.fill : '';
+    });
+    /* The caption fades out while the voxels move, and back in once they've settled */
+    cap.classList.remove('hh-cap-on');
+    cap.tabIndex = -1;
+    clearTimeout(capTimer);
+    if (id) capTimer = setTimeout(function () {
+      cap.textContent = APPS[id].name + ' · ' + APPS[id].cap + ' →';
+      cap.setAttribute('data-app', id);
+      cap.classList.add('hh-cap-on');
+      cap.tabIndex = 0;
+    }, 900);
+  }
+  cap.addEventListener('click', function () { pickGoal(goalOf(cap.getAttribute('data-app'))); });
+  if (!reduce) setTimeout(function () {
+    setInterval(function () {
+      if (paused || !heroVisible || document.hidden) return;
+      shown = (shown + 1) % seq.length;
+      morph(seq[shown]);
+    }, 3400);
+  }, 1400);
 
   /* Replay the heart build-in when the hero scrolls back into view */
   if (!reduce && 'IntersectionObserver' in window) {

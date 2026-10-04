@@ -5,7 +5,8 @@ header and footer as privacy.html. Edit this file, not the HTML, then run:
     python3 scripts/apps-catalog.py
 
 When an app is added or removed, also update the cards in index.html's #apps section, the
-ICONS, APPS and GOALS lists in its script (the app's pixel illustration, first step and goal),
+ICONS, ART, APPS and GOALS lists in its script (the app's pixel picture for the hero, its line
+drawing, its first step and its goal),
 and the "apps" count in the About section."""
 from html import escape
 from pathlib import Path
