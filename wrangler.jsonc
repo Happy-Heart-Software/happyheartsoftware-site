@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "happyheartsoftware-site",
+  "account_id": "3ab6348ae1744ace627004edc174a179",
   "compatibility_date": "2026-10-04",
   // A static site. The Worker only redirects www to the bare domain;
   // .assetsignore keeps scripts and repo files from being served.
