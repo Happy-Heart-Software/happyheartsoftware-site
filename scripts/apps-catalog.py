@@ -23,6 +23,7 @@ AREAS = [
     ('Money', '#E6F4EC', '#2F9E6E'),
     ('Create', '#FCEEDB', '#B45A0E'),
     ('Wellness', '#E5EFF8', '#2F76B8'),
+    ('Learn', '#FFF4CC', '#8A6100'),
     ('Everyday', '#DDF4F1', '#0F766E'),
     ('Play', '#EFE8F8', '#7B4FC0'),
     ('Business', '#FDE7EF', '#B5306A'),
@@ -59,6 +60,11 @@ APPS = [
          privacy='https://oneira.happyheartsoftware.com/privacy', works='Web and Android',
          what='Learn lucid dreaming step by step: short lessons and courses on proven techniques, a dream journal, dream signs, reality-check reminders, a wake-back-to-bed alarm and your progress over time. Optional backup is encrypted on your device first.',
          who=['Anyone curious about lucid dreaming', 'People who want to remember their dreams better', 'Dream journal keepers who want privacy by design']),
+    dict(name='Mnemora', tagline='Study with flashcards', area='Learn', status='live',
+         url='https://mnemora.happyheartsoftware.com', android='https://mnemora.happyheartsoftware.com/downloads/Mnemora.apk',
+         privacy='https://mnemora.happyheartsoftware.com/privacy/policy', works='Web and Android',
+         what='Step-by-step lessons that teach from zero, plus flashcards with spaced repetition that explain why each answer is right. Courses cover psychopharmacology, geometry and trigonometry, and coding, and you can make your own cards or import them from Quizlet or Anki. Everything stays on your device and works offline.',
+         who=['Students preparing for exams', 'Lifelong learners picking up a new subject', 'Anyone who wants a private study app with no account']),
     dict(name='Daily Travel Log', tagline='Travel tracking', area='Everyday', status='live',
          url='https://travel.happyheartsoftware.com', android='https://travel.happyheartsoftware.com/downloads/DailyTravelLog.apk',
          privacy='https://travel.happyheartsoftware.com/privacy', works='Web and Android',
@@ -79,6 +85,7 @@ CATEGORY = {
     'Money': 'FinanceApplication',
     'Create': 'DesignApplication',
     'Wellness': 'HealthApplication',
+    'Learn': 'EducationalApplication',
     'Everyday': 'TravelApplication',
     'Play': 'GameApplication',
     'Business': 'BusinessApplication',
@@ -87,7 +94,7 @@ CATEGORY = {
 SITE = 'https://happyheartsoftware.com'
 TITLE = 'All our apps'
 DESCRIPTION = ('Every Happy Heart Software app: budgeting, book formatting, publishing, fitness, '
-               'wellness, dream journaling, travel logs, word puzzles and website forms. '
+               'wellness, dream journaling, flashcard study, travel logs, word puzzles and website forms. '
                'What each one does, who it helps and where it works.')
 
 
