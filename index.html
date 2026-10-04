@@ -66,6 +66,52 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .hh-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .hh-goal{transition:background .2s ease,border-color .2s ease}
 #hh-panel{transition:background-image .3s ease}
+.hh-badge{padding:12px 18px 12px 12px;background:rgba(28,22,58,0.92);border:1px solid rgba(255,255,255,0.14);border-radius:16px;box-shadow:0 12px 30px rgba(0,0,0,0.3);display:flex;align-items:center;gap:12px;color:#FFFFFF;text-decoration:none;white-space:nowrap}
+.hh-badge:hover{color:#FFFFFF}
+.hh-badge-art{width:50px;height:44px;border-radius:11px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hh-badge-art svg{width:36px;height:auto}
+.hh-badge-text{display:flex;flex-direction:column;gap:2px}
+.hh-badge-text span:first-child{font-size:14px;font-weight:700}
+.hh-badge-text span:last-child{font-size:13px;color:#C9C4DA}
+@keyframes hhFadeUp{0%{opacity:0;transform:translateY(8px)}100%{opacity:1;transform:none}}
+.hh-grid{display:block;width:100%;height:auto;overflow:visible}
+.hh-grid rect{transform-box:fill-box;transform-origin:center;stroke-width:2;transition:fill .35s ease,stroke .35s ease,opacity .35s ease;transition-delay:calc(var(--d) * 18ms)}
+.hh-grid rect.off{opacity:0;fill:transparent;stroke:transparent}
+.hh-grid rect.ghost{fill:rgba(255,255,255,0.06);stroke:rgba(255,255,255,0.3)}
+.hh-grid rect.on{stroke:transparent}
+.hh-grid.hh-pop rect.on{animation:hhPop .45s cubic-bezier(.2,.8,.3,1.2) backwards;animation-delay:calc(var(--d) * 22ms)}
+.hh-art{height:128px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.hh-art svg{width:120px}
+.hh-app:hover .hh-art rect{animation:hhWave .5s ease-in-out;animation-delay:calc(var(--d) * 22ms)}
+.hh-goal{min-height:56px;padding:0 22px;border-radius:14px;background:rgba(255,255,255,0.05);color:#FFFFFF;border:2px solid rgba(255,255,255,0.14);font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;font-weight:600;text-align:left;cursor:pointer}
+.hh-goal:hover{background:rgba(255,255,255,0.1)}
+.hh-goal[aria-pressed="true"]{background:rgba(255,255,255,0.16);border-color:rgba(255,255,255,0.9)}
+.hh-step{display:flex;align-items:center;gap:20px;padding:14px;border-radius:18px;background:rgba(255,255,255,0.78);border:2px solid transparent;box-shadow:0 8px 22px rgba(40,20,80,0.1);transition:background .3s ease,border-color .3s ease,box-shadow .3s ease}
+.hh-step[hidden]{display:none}
+.hh-step.hh-ghost{background:rgba(255,255,255,0.32);border-color:rgba(26,22,36,0.16);border-style:dashed;box-shadow:none}
+.hh-step-art{width:132px;flex-shrink:0;padding:12px 14px;box-sizing:border-box;border-radius:13px;background:#241D4F;transition:background .4s ease}
+.hh-step.hh-ghost .hh-step-art{background:rgba(36,29,79,0.72)}
+.hh-step-text{flex-grow:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.hh-step-text>*{animation:hhFadeUp .4s ease backwards;animation-delay:.12s}
+.hh-step-head{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:10px;row-gap:2px}
+.hh-step-head h4{margin:0;font-family:Sora,sans-serif;font-size:21px;font-weight:700;letter-spacing:-0.3px}
+.hh-step-head span{font-size:14px;font-weight:700;color:#5C566B}
+.hh-step-do{margin:0;font-size:15px;line-height:1.5;color:#2E2A38}
+.hh-step-do strong{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-right:6px}
+.hh-step-links{display:flex;flex-wrap:wrap;gap:8px;padding-top:2px}
+.hh-btn,.hh-btn2{padding:8px 15px;border-radius:999px;font-size:14px;font-weight:800;text-decoration:none;white-space:nowrap}
+.hh-btn{background:#150A2E;color:#FFFFFF;border:2px solid #150A2E}
+.hh-btn:hover{background:#3A2A6E;border-color:#3A2A6E;color:#FFFFFF}
+.hh-btn2{color:#150A2E;border:2px solid rgba(21,10,46,0.5)}
+.hh-btn2:hover{color:#150A2E;border-color:#150A2E;background:rgba(255,255,255,0.6)}
+.hh-sk{display:flex;flex-direction:column;gap:10px}
+.hh-sk span{display:block;height:12px;border-radius:6px;background:rgba(26,22,36,0.12)}
+.hh-sk span:first-child{height:18px;background:rgba(26,22,36,0.18)}
+.hh-morph .hh-px{transition:translate .9s cubic-bezier(.6,0,.2,1),fill .9s ease,scale .5s ease,opacity .5s ease;transition-delay:calc(var(--d) * 5ms)}
+.hh-cap{position:absolute;left:50%;bottom:46px;transform:translate(-50%,8px);padding:10px 18px;border-radius:999px;background:rgba(28,22,58,0.92);border:1px solid rgba(255,255,255,0.18);color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .4s ease,transform .4s ease}
+.hh-cap.hh-cap-on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
+.hh-cap:hover{color:#FFFFFF;background:rgba(48,38,98,0.95)}
+@media (prefers-reduced-motion: reduce){.hh-grid rect,.hh-morph .hh-px{transition:none}.hh-app:hover .hh-art rect,.hh-step-text>*{animation:none}}
 @media (max-width: 1100px){
   header{height:auto!important;padding:16px 24px!important;flex-wrap:wrap;gap:14px}
   header nav{gap:18px!important;flex-wrap:wrap}
@@ -111,7 +157,10 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   #top>div:first-child>div:last-child a{text-align:center;white-space:nowrap}
   #top h1{font-size:44px!important}
   .hh-badge{transform:scale(.82);transform-origin:left center}
-  #hh-panel>svg{display:none}
+  #hh-panel{padding:22px!important}
+  .hh-step{flex-direction:column;align-items:stretch;gap:14px}
+  .hh-step-art{width:100%;padding:12px 0;display:flex;justify-content:center}
+  .hh-step-art svg{width:110px}
   #apps>div:last-child{grid-template-columns:1fr!important}
   #services>div:nth-child(2){grid-template-columns:1fr!important}
 }
@@ -147,45 +196,27 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   </section>
 
   <section id="goal" style="min-height: 600px; box-sizing: border-box; margin: 20px 96px 0; padding: 56px; border-radius: 28px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); display: flex; gap: 52px">
-    <div style="width: 460px; display: flex; flex-direction: column; gap: 18px">
+    <div style="width: 400px; flex-shrink: 0; display: flex; flex-direction: column; gap: 18px">
       <h2 style="margin: 0; font-family: Sora, sans-serif; font-size: 44px; line-height: 1.1; font-weight: 700; letter-spacing: -1.2px">What's your next small step?</h2>
       <p style="margin: 0; font-size: 18px; line-height: 1.55; color: #C9C4DA">Tell us what you're working toward and we'll show you where to start.</p>
       <div style="display: flex; flex-direction: column; gap: 10px; padding-top: 10px">
-        <button type="button" class="hh-goal" data-goal="money" aria-pressed="false" style="min-height: 60px; padding: 0 22px; border-radius: 14px; background: rgba(255,255,255,0.05); color: #FFFFFF; border: 2px solid rgba(255,255,255,0.14); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; text-align: left; cursor: pointer">Take control of my money</button>
-          <button type="button" class="hh-goal" data-goal="create" aria-pressed="false" style="min-height: 60px; padding: 0 22px; border-radius: 14px; background: rgba(255,255,255,0.05); color: #FFFFFF; border: 2px solid rgba(255,255,255,0.14); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; text-align: left; cursor: pointer">Publish my creative work</button>
-          <button type="button" class="hh-goal" data-goal="wellness" aria-pressed="false" style="min-height: 60px; padding: 0 22px; border-radius: 14px; background: rgba(255,255,255,0.05); color: #FFFFFF; border: 2px solid rgba(255,255,255,0.14); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; text-align: left; cursor: pointer">Feel better, body and mind</button>
-          <button type="button" class="hh-goal" data-goal="play" aria-pressed="false" style="min-height: 60px; padding: 0 22px; border-radius: 14px; background: rgba(255,255,255,0.05); color: #FFFFFF; border: 2px solid rgba(255,255,255,0.14); font-family: 'Plus Jakarta Sans', sans-serif; font-size: 17px; font-weight: 600; text-align: left; cursor: pointer">Sharpen my mind</button>
+        <button type="button" class="hh-goal" data-goal="money" aria-pressed="false">Take control of my money</button>
+        <button type="button" class="hh-goal" data-goal="create" aria-pressed="false">Publish my book or creative work</button>
+        <button type="button" class="hh-goal" data-goal="wellness" aria-pressed="false">Feel better, body and mind</button>
+        <button type="button" class="hh-goal" data-goal="learn" aria-pressed="false">Learn and keep my mind sharp</button>
+        <button type="button" class="hh-goal" data-goal="everyday" aria-pressed="false">Keep a log of my trips</button>
+        <button type="button" class="hh-goal" data-goal="business" aria-pressed="false">Hear from my website's visitors</button>
       </div>
     </div>
-    <div id="hh-panel" aria-live="polite" style="flex-grow: 1; position: relative; overflow: hidden; border-radius: 20px; padding: 44px; box-sizing: border-box; background-image: linear-gradient(135deg, #E3D7FA 0%, #FCDAEC 35%, #FFF0C4 70%, #D3F1DF 100%); color: #1A1624; display: flex; flex-direction: column; gap: 18px">
-      <svg width="150" height="150" viewBox="0 0 150 150" aria-hidden="true" style="position: absolute; right: 36px; bottom: 36px"><rect x="2" y="122" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.35"></rect><rect x="32" y="92" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.45"></rect><rect x="32" y="122" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.6"></rect><rect x="62" y="62" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.4"></rect><rect x="62" y="92" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.6"></rect><rect x="62" y="122" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.8"></rect><rect x="92" y="32" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.3"></rect><rect x="92" y="62" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.5"></rect><rect x="92" y="92" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.75"></rect><rect x="92" y="122" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.95"></rect><rect x="122" y="2" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.25"></rect><rect x="122" y="62" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="0.55"></rect><rect x="122" y="122" width="26" height="26" rx="5" class="hh-deco" fill="#5A3FD6" opacity="1"></rect></svg>
-      <div style="font-size: 13px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #5A3FD6" id="hh-tag">Start here</div>
-      <h3 style="margin: 0; font-family: Sora, sans-serif; font-size: 38px; line-height: 1.12; font-weight: 700; letter-spacing: -0.8px" id="hh-title">You bring the goal. We make the next step easy.</h3>
-      <p style="margin: 0; font-size: 18px; line-height: 1.6; color: #2E2A38" id="hh-body">Pick what matters to you right now, and we will show you how we can help.</p>
-      <div id="hh-points" style="display: flex; flex-direction: column; gap: 10px">
-        <div style="display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5A3FD6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Get on top of your money</span>
-          </div>
-<div style="display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5A3FD6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Share what you create</span>
-          </div>
-<div style="display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5A3FD6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Feel better, body and mind</span>
-          </div>
-<div style="display: flex; align-items: center; gap: 12px; font-size: 16px; font-weight: 600">
-            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5A3FD6" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Keep your mind sharp</span>
-          </div>
+    <div id="hh-panel" style="flex-grow: 1; min-width: 0; position: relative; overflow: hidden; border-radius: 20px; padding: 40px; box-sizing: border-box; background-image: linear-gradient(135deg, #E3D7FA 0%, #FCDAEC 35%, #FFF0C4 70%, #D3F1DF 100%); color: #1A1624; display: flex; flex-direction: column; gap: 14px">
+      <div aria-live="polite" style="display: flex; flex-direction: column; gap: 12px">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 1.4px; text-transform: uppercase; color: #5A3FD6" id="hh-tag">Start here</div>
+        <h3 style="margin: 0; font-family: Sora, sans-serif; font-size: 34px; line-height: 1.12; font-weight: 700; letter-spacing: -0.8px" id="hh-title">You bring the goal. We'll show you the first step.</h3>
+        <p style="margin: 0; font-size: 17px; line-height: 1.55; color: #2E2A38" id="hh-body">Pick what matters to you right now, and each card here becomes an app to try, with one small thing to do first.</p>
       </div>
+      <div id="hh-steps" style="display: flex; flex-direction: column; gap: 12px; padding-top: 6px"></div>
       <div style="flex-grow: 1"></div>
-      <div style="align-self: flex-start; display: flex; flex-wrap: wrap; gap: 12px; align-items: center">
-        <a href="#start" class="hh-shift" style="padding: 18px 30px; border-radius: 999px; border: none; background-image: linear-gradient(90deg, #FF3CAC, #FF8A00, #FFD23F, #34D399, #22D3EE, #7C3AED, #FF3CAC); color: #150A2E; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 800; cursor: pointer; box-shadow: 0 14px 34px rgba(124,58,237,0.35), inset 0 2px 0 rgba(255,255,255,0.6)" id="hh-cta">Talk to us →</a>
-        <a id="hh-cta2" href="#" target="_blank" rel="noopener" style="display: none; padding: 16px 26px; border-radius: 999px; border: 2px solid #150A2E; color: #150A2E; text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; font-weight: 800"></a>
-      </div>
-      <p id="hh-apks" style="display: none; margin: 0; font-size: 15px; font-weight: 700; color: #150A2E"></p>
+      <p style="margin: 0; font-size: 15px; font-weight: 600; color: #2E2A38">Need something we don't make yet? <a href="#custom" style="color: #3A2A9E; font-weight: 800">Talk to us →</a></p>
     </div>
   </section>
 
@@ -196,6 +227,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     </div>
     <div style="display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px">
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="bet" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #E6F4EC; color: #2F9E6E; font-size: 13px; font-weight: 800">Money</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -206,6 +238,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://bet.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open BET <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://bet.happyheartsoftware.com/downloads/BET.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the BET app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="quire" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #FCEEDB; color: #B45A0E; font-size: 13px; font-weight: 800">Create</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -216,6 +249,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://quire.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Quire <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="pubstar" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #FCEEDB; color: #B45A0E; font-size: 13px; font-weight: 800">Create</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -226,6 +260,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://pubstar.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Pubstar <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://pubstar.happyheartsoftware.com/downloads/Pubstar.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Pubstar app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="fitness" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #E5EFF8; color: #2F76B8; font-size: 13px; font-weight: 800">Wellness</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -236,6 +271,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://fitness.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open F&amp;G <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://fitness.happyheartsoftware.com/downloads/FitnessAndGains.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Fitness &amp; Gains app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="recovery" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #E5EFF8; color: #2F76B8; font-size: 13px; font-weight: 800">Wellness</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -246,6 +282,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://recovery.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open WAR <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://recovery.happyheartsoftware.com/downloads/WellnessAndRecovery.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Wellness &amp; Recovery app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="oneira" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #E5EFF8; color: #2F76B8; font-size: 13px; font-weight: 800">Wellness</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -256,6 +293,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
                 <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://oneira.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Oneira <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://oneira.happyheartsoftware.com/downloads/Oneira.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Oneira app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="mnemora" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #FFF4CC; color: #8A6100; font-size: 13px; font-weight: 800">Learn</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -266,6 +304,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://mnemora.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Mnemora <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://mnemora.happyheartsoftware.com/downloads/Mnemora.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Mnemora app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="multiflora" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #EFE8F8; color: #7B4FC0; font-size: 13px; font-weight: 800">Play</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -276,6 +315,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://multiflora.app" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Multiflora <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://play.google.com/store/apps/details?id=app.multiflora.android" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Google Play <span aria-hidden="true">↗</span><span class="hh-sr"> (get the Multiflora app for Android on Google Play, opens in a new tab)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="travel" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #DDF4F1; color: #0F766E; font-size: 13px; font-weight: 800">Everyday</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #B8F5C9"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #6EE08F"></span>Live</span>
@@ -286,6 +326,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
         <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 6px"><a href="https://travel.happyheartsoftware.com" target="_blank" rel="noopener" style="padding: 12px 20px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.3); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Open Travel Log <span aria-hidden="true">↗</span><span class="hh-sr"> (opens in a new tab)</span></a><a href="https://travel.happyheartsoftware.com/downloads/DailyTravelLog.apk" download style="padding: 12px 20px; border-radius: 999px; background: rgba(255,255,255,0.12); color: #FFFFFF; text-decoration: none; font-size: 15px; font-weight: 700">Android app <span aria-hidden="true">↓</span><span class="hh-sr"> (download the Daily Travel Log app for Android)</span></a></div>
       </article>
       <article class="hh-app" style="padding: 28px; border-radius: 20px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.14); display: flex; flex-direction: column; gap: 14px">
+        <div class="hh-art" data-icon="heartforms" aria-hidden="true"></div>
         <div style="display: flex; align-items: center; justify-content: space-between; gap: 12px">
           <span style="padding: 6px 12px; border-radius: 999px; background: #FDE7EF; color: #B5306A; font-size: 13px; font-weight: 800">Business</span>
           <span style="display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 700; color: #D8CCFF"><span aria-hidden="true" style="width: 8px; height: 8px; border-radius: 999px; background: #A88BFF"></span>Early access</span>
@@ -468,163 +509,316 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 </div>
 <script>
 (function () {
+  /* Pixel illustrations on the heart's 13 × 11 grid. Each letter is a color in pal; dots are empty. */
+  var ICONS = {
+    bet: { pal: { Y: 'hsl(46 96% 60%)', y: 'hsl(40 96% 72%)', G: 'hsl(146 70% 50%)', g: 'hsl(146 80% 66%)', d: 'hsl(160 40% 40%)' }, map: [
+      '.yy..........', 'yYYY.........', 'yYYY......gg.', '.YY.......GG.', '..........GG.', '.......gg.GG.',
+      '.......GG.GG.', '....gg.GG.GG.', '.gg.GG.GG.GG.', '.GG.GG.GG.GG.', 'ddddddddddddd'] },
+    quire: { pal: { c: 'hsl(28 90% 62%)', k: 'hsl(28 40% 80%)' }, map: [
+      '.............', '.ccc.....ccc.', 'c...cc.cc...c', 'c.....c.....c', 'c.kkk.c.kkk.c', 'c.....c.....c',
+      'c.kkk.c.kk..c', 'c.....c.....c', 'c.kk..c.kkk.c', 'cccc..c..cccc', '....ccccc....'] },
+    pubstar: { pal: { y: 'hsl(48 96% 66%)', Y: 'hsl(40 96% 58%)', O: 'hsl(28 92% 56%)' }, map: [
+      '......y......', '.....yYO.....', '.....yYO.....', 'yyyyyyYOOOOOO', '.yyyyyYOOOOO.', '..yyyyYOOOO..',
+      '...yyyYOOO...', '...yyyYOOO...', '..yyyy.OOOO..', '..yyy...OOO..', '.yy.......OO.'] },
+    fitness: { pal: { R: 'hsl(4 86% 60%)', r: 'hsl(350 80% 50%)', g: 'hsl(120 60% 45%)', G: 'hsl(110 70% 60%)', b: 'hsl(210 80% 62%)', s: 'hsl(215 25% 70%)' }, map: [
+      '......gGG....', '....RR.RR....', '...RRRRRRr...', '...RRRRRRr...', '....RRRRr....', '.....R.r.....',
+      '.bb.......bb.', 'bbbb.....bbbb', 'bbbbsssssbbbb', 'bbbb.....bbbb', '.bb.......bb.'] },
+    recovery: { pal: { L: 'hsl(150 70% 55%)', l: 'hsl(165 70% 45%)', S: 'hsl(140 50% 45%)', P: 'hsl(205 80% 60%)', p: 'hsl(210 70% 50%)' }, map: [
+      '.......LLLL..', '.LL...LLLLL..', 'LLLL..LLLL...', 'llLLL.LL.....', '.llllSl......', '.....S.......',
+      '.....S.......', '..PPPPPPPPP..', '...ppppppp...', '...ppppppp...', '....ppppp....'] },
+    oneira: { pal: { M: 'hsl(250 90% 75%)', m: 'hsl(260 70% 62%)', s: 'hsl(50 96% 70%)' }, map: [
+      '...MMMM......', '.MMMM.....s..', 'MMM......sss.', 'MMm.......s..', 'Mm...........', 'Mm......s....',
+      'MMm..........', 'MMmm......MM.', '.MMmmm..mMMM.', '...MMMMMMM...', '.............'] },
+    mnemora: { pal: { c: 'hsl(44 80% 70%)', f: 'hsl(44 96% 58%)', K: 'hsl(140 70% 55%)' }, map: [
+      '...cccccccccc', '...c........c', 'ffffffffff..c', 'f........f..c', 'f......K.f..c', 'f.....K..f..c',
+      'f.K..K...fccc', 'f..KK....f...', 'f........f...', 'ffffffffff...', '.............'] },
+    travel: { pal: { P: 'hsl(178 75% 48%)', w: 'hsl(178 60% 88%)', t: 'hsl(30 90% 60%)', d: 'hsl(178 30% 72%)' }, map: [
+      '.......PPPPP.', '......PPPPPPP', '......PPPwPPP', '......PPPPPPP', '.......PPPPP.', '........PPP..',
+      '.........P...', '.............', '.tt......d...', 'tttt.d.d.....', '.tt..........'] },
+    multiflora: { pal: { P: 'hsl(280 70% 66%)', p: 'hsl(320 80% 72%)', Y: 'hsl(48 96% 62%)', g: 'hsl(120 55% 50%)' }, map: [
+      '.....PPP.....', '..PP.PpP.PP..', '.PpPP.p.PPpP.', '..PPPYYYPPP..', 'PPp.YYYYY.pPP', '..PPPYYYPPP..',
+      '.PpPP.p.PPpP.', '..PP.PpP.PP..', '.....PPP.....', '......g......', '......g......'] },
+    heartforms: { pal: { H: 'hsl(340 85% 62%)', e: 'hsl(330 50% 78%)' }, map: [
+      '....HH.HH....', '...HHHHHHH...', '....HHHHH....', '.....HHH.....', 'eeeeee.eeeeee', 'ee.........ee',
+      'e.e.......e.e', 'e..ee...ee..e', 'e....eee....e', 'e...........e', 'eeeeeeeeeeeee'] },
+    custom: { pal: { b: 'hsl(190 80% 60%)', H: 'hsl(340 85% 62%)', h: 'hsl(20 90% 60%)' }, map: [
+      '.bbbbbbbbbbb.', 'b...........b', 'b...HH.hh...b', 'b..HHHHhhh..b', 'b...HHhhh...b', 'b....Hhh....b',
+      'b.....h.....b', 'b...........b', '.bbb.bbbbbbb.', '...b.b.......', '...bb........'] }
+  };
+  /* step: the first small thing to do, shown on the goal cards. chip: a shorter version for the hero. */
+  var APPS = {
+    bet: { name: 'BET', tagline: 'Budget & Expense Tracker', url: 'https://bet.happyheartsoftware.com', apk: 'https://bet.happyheartsoftware.com/downloads/BET.apk',
+      step: 'Start a ledger and add what you spent today. It lives in your own Google Drive.', chip: 'Add today’s spending' },
+    quire: { name: 'Quire', tagline: 'Book formatting', url: 'https://quire.happyheartsoftware.com',
+      step: 'Upload your finished manuscript and preview the print-ready PDF. Invite only for now.', chip: 'Preview your book as a PDF' },
+    pubstar: { name: 'Pubstar', tagline: 'Publishing for creators', url: 'https://pubstar.happyheartsoftware.com', apk: 'https://pubstar.happyheartsoftware.com/downloads/Pubstar.apk',
+      step: 'Publishing with the Pubstar studio? Sign in to see every place your work is sold.', chip: 'See where your work is sold' },
+    fitness: { name: 'Fitness & Gains', short: 'F&G', tagline: 'Food, training & wellness', url: 'https://fitness.happyheartsoftware.com', apk: 'https://fitness.happyheartsoftware.com/downloads/FitnessAndGains.apk',
+      step: 'Log one meal or one workout today. No account needed.', chip: 'Log today’s lunch' },
+    recovery: { name: 'Wellness & Recovery', short: 'WAR', tagline: 'Daily recovery companion', url: 'https://recovery.happyheartsoftware.com', apk: 'https://recovery.happyheartsoftware.com/downloads/WellnessAndRecovery.apk',
+      step: 'Do a two-minute check-in and plan one small thing for today.', chip: 'Do a two-minute check-in' },
+    oneira: { name: 'Oneira', tagline: 'Learn to lucid dream', url: 'https://oneira.happyheartsoftware.com', apk: 'https://oneira.happyheartsoftware.com/downloads/Oneira.apk',
+      step: 'Tomorrow morning, write down whatever you remember of your dream.', chip: 'Write down last night’s dream' },
+    mnemora: { name: 'Mnemora', tagline: 'Study with flashcards', url: 'https://mnemora.happyheartsoftware.com', apk: 'https://mnemora.happyheartsoftware.com/downloads/Mnemora.apk',
+      step: 'Take one short lesson. Its flashcards come back right when you’re about to forget.', chip: 'Review ten flashcards' },
+    multiflora: { name: 'Multiflora', tagline: 'Word puzzles', url: 'https://multiflora.app', play: 'https://play.google.com/store/apps/details?id=app.multiflora.android',
+      step: 'Play one Rows Garden, the flower-shaped crossword.', chip: 'Solve a Rows Garden puzzle' },
+    travel: { name: 'Daily Travel Log', short: 'Travel Log', tagline: 'Travel tracking', url: 'https://travel.happyheartsoftware.com', apk: 'https://travel.happyheartsoftware.com/downloads/DailyTravelLog.apk',
+      step: 'Log today’s trip in a few taps, and export the log whenever you need it.', chip: 'Log today’s drive' },
+    heartforms: { name: 'Heartforms', tagline: 'Forms for any website', url: 'https://forms.happyheartsoftware.com', open: 'Learn more', ask: '#help',
+      step: 'Ask us for early access, then point your site’s contact form at it.', chip: 'Get your contact form’s messages' },
+    custom: { name: 'Custom software', tagline: 'Made for your business', url: '#custom', open: 'Tell us what you need', local: true,
+      step: 'Something bigger in mind? We build websites and custom software for small businesses.' }
+  };
   var GOALS = [
-      { id: 'money', url: 'https://bet.happyheartsoftware.com', cta: 'Try BET →', apks: [['BET', 'https://bet.happyheartsoftware.com/downloads/BET.apk']], label: 'Take control of my money', pillar: 'Money', ring: '#2F9E6E', tint: '#E6F4EC', panel: 'linear-gradient(135deg, #D3F1DF 0%, #FFF0C4 100%)',
-        title: 'Budgeting that finally makes sense',
-        body: 'See where every dollar goes, set goals you can actually hit, and build better money habits without spreadsheets or guilt.',
-        points: ['Track expenses in seconds', 'Plan monthly budgets simply', 'Celebrate every goal you reach'] },
-      { id: 'create', url: 'https://pubstar.happyheartsoftware.com', cta: 'Try Pubstar →', url2: 'https://quire.happyheartsoftware.com', cta2: 'Try Quire →', apks: [['Pubstar', 'https://pubstar.happyheartsoftware.com/downloads/Pubstar.apk']], label: 'Publish my creative work', pillar: 'Create', ring: '#B45A0E', tint: '#FCEEDB', panel: 'linear-gradient(135deg, #FFE1BF 0%, #FFD3DF 100%)',
-        title: 'From idea to published, simply',
-        body: 'Write, design, and share your stories, art, and ideas with the world using tools that feel natural from day one.',
-        points: ['Easy writing and design tools', 'Publish in just a few taps', 'Grow your audience your way'] },
-      { id: 'wellness', url: 'https://fitness.happyheartsoftware.com', cta: 'Try Fitness & Gains →', url2: 'https://recovery.happyheartsoftware.com', cta2: 'Try Wellness & Recovery →', apks: [['Fitness & Gains', 'https://fitness.happyheartsoftware.com/downloads/FitnessAndGains.apk'], ['Wellness & Recovery', 'https://recovery.happyheartsoftware.com/downloads/WellnessAndRecovery.apk']], label: 'Feel better, body and mind', pillar: 'Wellness', ring: '#2F76B8', tint: '#E5EFF8', panel: 'linear-gradient(135deg, #D2E7FA 0%, #D8F4EA 100%)',
-        title: 'Gentle support for your whole self',
-        body: 'Build healthy routines for your body and find calm, steady support for your mind as you recover and grow.',
-        points: ['Daily wellness check-ins', 'Guided routines that fit your day', 'Tools that support mental recovery'] },
-      { id: 'play', url: 'https://multiflora.app', cta: 'Try Multiflora →', label: 'Sharpen my mind', pillar: 'Play', ring: '#7B4FC0', tint: '#EFE8F8', panel: 'linear-gradient(135deg, #E3D7FA 0%, #FCDAEC 100%)',
-        title: 'Games that make you think',
-        body: 'Challenging puzzles and brain games that keep you engaged while helping your mind stay sharp and grow.',
-        points: ['Puzzles that adapt to you', 'Track your progress over time', 'Fun enough to come back daily'] }
+      { id: 'money', pillar: 'Money', ring: '#2F9E6E', panel: 'linear-gradient(135deg, #D3F1DF 0%, #FFF0C4 100%)', apps: ['bet'],
+        title: 'See where your money goes', body: 'Simple ledgers you keep in your own Google Drive, and share with whoever you budget with.' },
+      { id: 'create', pillar: 'Create', ring: '#B45A0E', panel: 'linear-gradient(135deg, #FFE1BF 0%, #FFD3DF 100%)', apps: ['quire', 'pubstar'],
+        title: 'From manuscript to published', body: 'Format your book for print and e-book, then keep track of everywhere it’s sold.' },
+      { id: 'wellness', pillar: 'Wellness', ring: '#2F76B8', panel: 'linear-gradient(135deg, #D2E7FA 0%, #D8F4EA 100%)', apps: ['fitness', 'recovery', 'oneira'],
+        title: 'Gentle support for your whole self', body: 'Eat and train with a plan, build steadier days, and rest better. Everything stays on your device.' },
+      { id: 'learn', pillar: 'Learn & Play', ring: '#8A6100', panel: 'linear-gradient(135deg, #FFF0C4 0%, #EFE3FB 100%)', apps: ['mnemora', 'multiflora'],
+        title: 'A little learning every day', body: 'Study any subject with lessons and flashcards that remember for you, or unwind with a word puzzle.' },
+      { id: 'everyday', pillar: 'Everyday', ring: '#0F766E', panel: 'linear-gradient(135deg, #CFF3EE 0%, #D9ECFB 100%)', apps: ['travel'],
+        title: 'Every trip, written down', body: 'A simple, readable record of where you went, ready for expenses or taxes.' },
+      { id: 'business', pillar: 'Business', ring: '#B5306A', panel: 'linear-gradient(135deg, #FCD9E6 0%, #E9DDFB 100%)', apps: ['heartforms', 'custom'],
+        title: 'Never miss a message from your site', body: 'Contact forms, sign-ups and RSVPs, saved and emailed to the right person.' }
     ];
-  var OVERVIEW = { tag: 'Start here', ring: '#5A3FD6', cta: 'Talk to us →',
+  var OVERVIEW = { tag: 'Start here', ring: '#5A3FD6',
       panel: 'linear-gradient(135deg, #E3D7FA 0%, #FCDAEC 35%, #FFF0C4 70%, #D3F1DF 100%)',
-      title: 'You bring the goal. We make the next step easy.',
-      body: 'Pick what matters to you right now, and we will show you how we can help.',
-      points: ['Get on top of your money', 'Share what you create', 'Feel better, body and mind', 'Keep your mind sharp'] };
-  var BADGES = [
-      { title: 'Budget goal hit', sub: 'Lunch came in under budget', goal: 'money', col: '#2F9E6E', tint: '#E6F4EC', icon: 'M20 6 L9 17 L4 12' },
-      { title: 'Bills all sorted', sub: 'Nothing due this week', goal: 'money', col: '#2F9E6E', tint: '#E6F4EC', icon: 'M3 7 h18 v12 h-18 Z M3 11 h18 M7 15 h4' },
-      { title: 'Story published', sub: 'Your new post is live', goal: 'create', col: '#B45A0E', tint: '#FCEEDB', icon: 'M12 20h9 M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z' },
-      { title: 'New comment', sub: 'Someone loved your latest piece', goal: 'create', col: '#B45A0E', tint: '#FCEEDB', icon: 'M21 12a8 8 0 0 1-11.6 7.1L4 20l1-4.6A8 8 0 1 1 21 12Z' },
-      { title: 'Check-in done', sub: 'Feeling calmer today', goal: 'wellness', col: '#2F76B8', tint: '#E5EFF8', icon: 'M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.5 19 2c1 2 2 4.2 2 8 0 5.5-4.8 10-10 10Z M2 21c0-3 1.9-5.4 5.1-6' },
-      { title: 'Stretch break', sub: 'Five minutes well spent', goal: 'wellness', col: '#2F76B8', tint: '#E5EFF8', icon: 'M12 3a9 9 0 1 0 0 18a9 9 0 1 0 0-18Z M12 7 v5 l3 2' },
-      { title: 'New puzzle streak', sub: 'Five days in a row', goal: 'play', col: '#7B4FC0', tint: '#EFE8F8', icon: 'M12 2l2.9 6.9L22 10l-5.5 4.8L18 22l-6-3.6L6 22l1.5-7.2L2 10l7.1-1.1Z' },
-      { title: 'Level complete', sub: 'Your best time yet', goal: 'play', col: '#7B4FC0', tint: '#EFE8F8', icon: 'M8 21h8 M12 17v4 M7 4h10v5a5 5 0 0 1-10 0Z M7 6H4a3 3 0 0 0 3 4 M17 6h3a3 3 0 0 1-3 4' }
-    ];
-  var SLOTS = [
-      ['left: -48px; top: 56px', 'right: -40px; bottom: 56px'],
-      ['right: -48px; top: 110px', 'left: -24px; bottom: 96px'],
-      ['left: 140px; top: -20px', 'left: 150px; bottom: -22px'],
-      ['left: -48px; top: 56px', 'right: -48px; top: 150px'],
-      ['left: -24px; bottom: 96px', 'right: -40px; bottom: 30px'],
-      ['left: 140px; top: -20px', 'right: -40px; bottom: 56px'],
-      ['right: -48px; top: 110px', 'left: 150px; bottom: -22px']
-    ];
-  if (window.matchMedia && window.matchMedia('(max-width: 560px)').matches) {
-    SLOTS = [['left: -44px; top: 4%', 'right: -44px; bottom: 6%'], ['right: -44px; top: 4%', 'left: -44px; bottom: 6%']];
-  }
+      title: 'You bring the goal. We’ll show you the first step.',
+      body: 'Pick what matters to you right now, and each card here becomes an app to try, with one small thing to do first.' };
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hero = document.getElementById('hh-hero');
 
-  /* Goal picker */
-  var picked = null;
+  /* Pixel grids */
+  var NS = 'http://www.w3.org/2000/svg';
+  function cells(id) {
+    var ic = ICONS[id], out = [];
+    ic.map.forEach(function (row, y) {
+      for (var x = 0; x < row.length; x++) if (row[x] !== '.') out.push({ x: x, y: y, fill: ic.pal[row[x]] });
+    });
+    return out;
+  }
+  var HEART = Array.prototype.map.call(hero.querySelectorAll('.hh-px'), function (r) {
+    return { x: Math.round((r.getAttribute('x') - 1.25) / 20), y: Math.round((r.getAttribute('y') - 1.25) / 20), fill: r.getAttribute('fill') };
+  });
+  function grid() {
+    var svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('viewBox', '0 0 260 220');
+    svg.setAttribute('aria-hidden', 'true');
+    svg.setAttribute('class', 'hh-grid');
+    for (var y = 0; y < 11; y++) for (var x = 0; x < 13; x++) {
+      var r = document.createElementNS(NS, 'rect');
+      r.setAttribute('x', x * 20 + 1.25); r.setAttribute('y', y * 20 + 1.25);
+      r.setAttribute('width', 17.5); r.setAttribute('height', 17.5); r.setAttribute('rx', 3);
+      r.setAttribute('class', 'off');
+      r.style.setProperty('--d', x + y);
+      svg.appendChild(r);
+    }
+    return svg;
+  }
+  /* Lights up the given cells: 'on' in their colors, or 'ghost' as dashed outlines. */
+  function paint(svg, list, mode) {
+    var on = {};
+    list.forEach(function (c) { on[c.y * 13 + c.x] = c; });
+    Array.prototype.forEach.call(svg.children, function (r, i) {
+      var c = on[i];
+      r.setAttribute('class', c ? mode : 'off');
+      r.style.fill = c && mode === 'on' ? c.fill : '';
+    });
+    if (mode === 'on' && !reduce) {
+      svg.classList.remove('hh-pop'); void svg.getBoundingClientRect(); svg.classList.add('hh-pop');
+    }
+  }
+  function glow(id) {
+    var c = cells(id)[0].fill.replace(')', ' / 0.32)');
+    return 'radial-gradient(circle at 50% 55%, ' + c + ' 0%, rgba(0,0,0,0) 72%), #241D4F';
+  }
+
+  /* Illustrations on the app cards */
+  Array.prototype.forEach.call(document.querySelectorAll('.hh-art'), function (el) {
+    var id = el.getAttribute('data-icon'), svg = grid();
+    paint(svg, cells(id), 'on');
+    svg.classList.remove('hh-pop');
+    el.style.background = glow(id);
+    el.appendChild(svg);
+  });
+
+  /* Goal picker: three cards that start as heart outlines and become the apps for the goal */
   var panel = document.getElementById('hh-panel');
   var tag = document.getElementById('hh-tag');
   var title = document.getElementById('hh-title');
   var bodyEl = document.getElementById('hh-body');
-  var points = document.getElementById('hh-points');
-  var cta = document.getElementById('hh-cta');
-  var cta2 = document.getElementById('hh-cta2');
-  var apks = document.getElementById('hh-apks');
-  var pointTpl = points.firstElementChild.cloneNode(true);
+  var stepsEl = document.getElementById('hh-steps');
   var buttons = Array.prototype.slice.call(document.querySelectorAll('.hh-goal'));
+  var picked = null;
+  function el(tagName, cls, text) {
+    var e = document.createElement(tagName);
+    if (cls) e.className = cls;
+    if (text) e.textContent = text;
+    return e;
+  }
+  var slots = [0, 1, 2].map(function () {
+    var card = el('article', 'hh-step hh-ghost'), art = el('div', 'hh-step-art'), text = el('div', 'hh-step-text'), svg = grid();
+    art.appendChild(svg); card.appendChild(art); card.appendChild(text); stepsEl.appendChild(card);
+    return { card: card, art: art, svg: svg, text: text };
+  });
+  function skeleton(text) {
+    text.innerHTML = '<div class="hh-sk" aria-hidden="true"><span style="width: 38%"></span><span style="width: 86%"></span><span style="width: 64%"></span></div>';
+  }
+  function link(href, label, sr, cls) {
+    var a = el('a', cls, label);
+    a.href = href;
+    if (/^http/.test(href)) { a.target = '_blank'; a.rel = 'noopener'; }
+    if (sr) { var s = el('span', 'hh-sr', sr); a.appendChild(s); }
+    return a;
+  }
+  function fill(text, id, ring) {
+    var app = APPS[id];
+    text.innerHTML = '';
+    var head = el('div', 'hh-step-head');
+    head.appendChild(el('h4', null, app.name));
+    head.appendChild(el('span', null, app.tagline));
+    var p = el('p', 'hh-step-do');
+    var first = el('strong', null, app.local ? 'Next step ' : 'First step ');
+    first.style.color = ring;
+    p.appendChild(first); p.appendChild(document.createTextNode(app.step));
+    var links = el('div', 'hh-step-links');
+    links.appendChild(link(app.url, (app.open || 'Open ' + (app.short || app.name)) + (app.local ? ' →' : ' ↗'), app.local ? '' : ' (opens in a new tab)', 'hh-btn'));
+    if (app.apk) { var d = link(app.apk, 'Android app ↓', ' (download the ' + app.name + ' app for Android)', 'hh-btn2'); d.setAttribute('download', ''); links.appendChild(d); }
+    if (app.play) links.appendChild(link(app.play, 'Google Play ↗', ' (get ' + app.name + ' on Google Play, opens in a new tab)', 'hh-btn2'));
+    if (app.ask) links.appendChild(link(app.ask, 'Ask for access', '', 'hh-btn2'));
+    text.appendChild(head); text.appendChild(p); text.appendChild(links);
+  }
   function showGoal(g) {
-    var cur = g ? Object.assign({}, g, { tag: 'For you · ' + g.pillar }) : OVERVIEW;
+    var cur = g ? { tag: 'For you · ' + g.pillar, ring: g.ring, panel: g.panel, title: g.title, body: g.body } : OVERVIEW;
     panel.style.backgroundImage = cur.panel;
     tag.textContent = cur.tag; tag.style.color = cur.ring;
     title.textContent = cur.title;
     bodyEl.textContent = cur.body;
-    cta.textContent = cur.cta;
-    if (g) { cta.href = g.url; cta.target = '_blank'; cta.rel = 'noopener'; }
-    else { cta.href = '#start'; cta.removeAttribute('target'); cta.removeAttribute('rel'); }
-    if (g && g.url2) { cta2.href = g.url2; cta2.textContent = g.cta2; cta2.style.display = 'inline-block'; }
-    else { cta2.style.display = 'none'; }
-    apks.innerHTML = '';
-    if (g && g.apks) {
-      apks.appendChild(document.createTextNode('On Android? '));
-      g.apks.forEach(function (a, i) {
-        if (i) apks.appendChild(document.createTextNode(' · '));
-        var link = document.createElement('a');
-        link.href = a[1]; link.setAttribute('download', '');
-        link.textContent = 'Get the ' + a[0] + ' app ↓';
-        link.style.color = '#150A2E';
-        apks.appendChild(link);
-      });
-      apks.style.display = 'block';
-    } else { apks.style.display = 'none'; }
-    points.innerHTML = '';
-    cur.points.forEach(function (p) {
-      var row = pointTpl.cloneNode(true);
-      row.querySelector('svg').setAttribute('stroke', cur.ring);
-      row.querySelector('span').textContent = p;
-      points.appendChild(row);
+    slots.forEach(function (s, i) {
+      var id = g && g.apps[i];
+      s.card.hidden = !!g && !id;
+      s.card.classList.toggle('hh-ghost', !g);
+      if (id) { paint(s.svg, cells(id), 'on'); s.art.style.background = glow(id); fill(s.text, id, g.ring); }
+      else if (!g) { paint(s.svg, HEART, 'ghost'); s.art.style.background = ''; skeleton(s.text); }
     });
-    Array.prototype.forEach.call(panel.querySelectorAll('.hh-deco'), function (r) { r.setAttribute('fill', cur.ring); });
-    buttons.forEach(function (b) {
-      var on = g && b.getAttribute('data-goal') === g.id;
-      b.style.background = on ? 'rgba(255,255,255,0.14)' : 'rgba(255,255,255,0.05)';
-      b.style.borderColor = on ? 'rgba(255,255,255,0.9)' : 'rgba(255,255,255,0.14)';
-      b.setAttribute('aria-pressed', on ? 'true' : 'false');
-    });
+    buttons.forEach(function (b) { b.setAttribute('aria-pressed', g && b.getAttribute('data-goal') === g.id ? 'true' : 'false'); });
   }
+  function goalOf(id) { return GOALS.filter(function (g) { return g.apps.indexOf(id) !== -1; })[0]; }
+  function pickGoal(g) { picked = g ? g.id : null; showGoal(g); }
   buttons.forEach(function (b) {
     b.addEventListener('click', function () {
       var id = b.getAttribute('data-goal');
-      picked = picked === id ? null : id;
-      showGoal(GOALS.filter(function (g) { return g.id === picked; })[0] || null);
+      pickGoal(picked === id ? null : GOALS.filter(function (g) { return g.id === id; })[0]);
     });
   });
+  showGoal(null);
 
-  /* Hero badges */
-  var hero = document.getElementById('hh-hero');
-  var current = null, currentSlot = -1, swaps = 0, nodes = [];
-  function pick(prev, prevSlot) {
-    var n = BADGES.length, a, b, slot;
-    do {
-      a = Math.floor(Math.random() * n);
-      b = Math.floor(Math.random() * n);
-    } while (a === b || BADGES[a].goal === BADGES[b].goal || (prev && (prev.indexOf(a) !== -1 || prev.indexOf(b) !== -1)));
-    do { slot = Math.floor(Math.random() * SLOTS.length); } while (slot === prevSlot);
-    return { idx: [a, b], slot: slot };
-  }
-  function badgeEl(bd, pos, k) {
-    var el = document.createElement('div');
-    el.className = 'hh-badge ' + (swaps % 2 === 0 ? 'hh-bA' : 'hh-bB');
-    el.setAttribute('style', 'position: absolute; ' + pos + '; animation-delay: ' +
-      (swaps === 0 ? (k === 0 ? '1.55s' : '1.8s') : (k === 0 ? '0s' : '0.12s')) +
-      '; padding: 14px 18px; background: rgba(28,22,58,0.92); border: 1px solid rgba(255,255,255,0.14); border-radius: 16px; box-shadow: 0 12px 30px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 12px');
-    var icon = document.createElement('div');
-    icon.setAttribute('style', 'width: 40px; height: 40px; border-radius: 12px; background: ' + bd.tint + '; display: flex; align-items: center; justify-content: center');
-    icon.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="' + bd.col + '" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + bd.icon + '"></path></svg>';
-    var txt = document.createElement('div');
-    txt.setAttribute('style', 'display: flex; flex-direction: column; gap: 2px');
-    var t1 = document.createElement('span'); t1.setAttribute('style', 'font-size: 14px; font-weight: 700'); t1.textContent = bd.title;
-    var t2 = document.createElement('span'); t2.setAttribute('style', 'font-size: 13px; color: #C9C4DA'); t2.textContent = bd.sub;
-    txt.appendChild(t1); txt.appendChild(t2);
-    el.appendChild(icon); el.appendChild(txt);
-    return el;
-  }
-  function renderBadges() {
-    nodes.forEach(function (n) { n.remove(); });
-    nodes = current.idx.map(function (i, k) {
-      var el = badgeEl(BADGES[i], SLOTS[currentSlot][k], k);
-      hero.appendChild(el);
-      return el;
+  /* Hero: rotating first steps from the apps (default), or ?hero=morph for the heart that turns into each app */
+  var HERO_APPS = Object.keys(APPS).filter(function (id) { return APPS[id].chip; });
+  var heroVisible = true, paused = false;
+  hero.addEventListener('mouseenter', function () { paused = true; });
+  hero.addEventListener('mouseleave', function () { paused = false; });
+  hero.addEventListener('focusin', function () { paused = true; });
+  hero.addEventListener('focusout', function () { paused = false; });
+  function every(ms, fn) { if (!reduce) setInterval(function () { if (!paused && heroVisible && !document.hidden) fn(); }, ms); }
+
+  if (/[?&]hero=morph\b/.test(location.search)) {
+    var vox = Array.prototype.map.call(hero.querySelectorAll('.hh-px'), function (r, i) { return { el: r, x: HEART[i].x, y: HEART[i].y }; })
+      .sort(function (a, b) { return a.y - b.y || a.x - b.x; });
+    hero.classList.add('hh-morph');
+    var cap = el('a', 'hh-cap');
+    cap.href = '#goal';
+    hero.appendChild(cap);
+    var seq = HERO_APPS.concat([null]), shown = -1, capTimer;
+    function morph(id) {
+      var target = id && cells(id);
+      vox.forEach(function (v, i) {
+        var t = target ? target[i] : v;
+        v.el.style.scale = t ? '' : '0';
+        v.el.style.opacity = t ? '' : '0';
+        if (!t) return;
+        v.el.style.translate = (t.x - v.x) * 20 + 'px ' + (t.y - v.y) * 20 + 'px';
+        v.el.style.fill = target ? t.fill : '';
+      });
+      /* The caption fades out while the voxels move, and back in once they've settled */
+      cap.classList.remove('hh-cap-on');
+      cap.tabIndex = -1;
+      clearTimeout(capTimer);
+      if (id) capTimer = setTimeout(function () {
+        cap.textContent = APPS[id].name + ' · ' + APPS[id].chip + ' →';
+        cap.setAttribute('data-app', id);
+        cap.classList.add('hh-cap-on');
+        cap.tabIndex = 0;
+      }, 900);
+    }
+    cap.addEventListener('click', function () { pickGoal(goalOf(cap.getAttribute('data-app'))); });
+    cap.tabIndex = -1;
+    setTimeout(function () {
+      every(3400, function () { shown = (shown + 1) % seq.length; morph(seq[shown]); });
+    }, 1400);
+  } else {
+    var SLOTS = [
+        ['left: -48px; top: 56px', 'right: -40px; bottom: 56px'],
+        ['right: -48px; top: 110px', 'left: -24px; bottom: 96px'],
+        ['left: 120px; top: -20px', 'left: 130px; bottom: -22px'],
+        ['left: -48px; top: 56px', 'right: -48px; top: 150px'],
+        ['left: -24px; bottom: 96px', 'right: -40px; bottom: 30px'],
+        ['left: 120px; top: -20px', 'right: -40px; bottom: 56px'],
+        ['right: -48px; top: 110px', 'left: 130px; bottom: -22px']
+      ];
+    if (window.matchMedia && window.matchMedia('(max-width: 560px)').matches) {
+      SLOTS = [['left: -44px; top: 4%', 'right: -44px; bottom: 6%'], ['right: -44px; top: 4%', 'left: -44px; bottom: 6%']];
+    }
+    var current = null, currentSlot = -1, swaps = 0, nodes = [];
+    function pick(prev, prevSlot) {
+      var n = HERO_APPS.length, a, b, slot;
+      do {
+        a = Math.floor(Math.random() * n);
+        b = Math.floor(Math.random() * n);
+      } while (a === b || goalOf(HERO_APPS[a]) === goalOf(HERO_APPS[b]) || (prev && (prev.indexOf(a) !== -1 || prev.indexOf(b) !== -1)));
+      do { slot = Math.floor(Math.random() * SLOTS.length); } while (slot === prevSlot);
+      return { idx: [a, b], slot: slot };
+    }
+    function chip(id, pos, k) {
+      var app = APPS[id], c = el('a', 'hh-badge ' + (swaps % 2 === 0 ? 'hh-bA' : 'hh-bB'));
+      c.href = '#goal';
+      c.setAttribute('style', 'position: absolute; ' + pos + '; animation-delay: ' + (swaps === 0 ? (k === 0 ? '1.55s' : '1.8s') : (k === 0 ? '0s' : '0.12s')));
+      var icon = el('div', 'hh-badge-art'), svg = grid();
+      paint(svg, cells(id), 'on'); svg.classList.remove('hh-pop');
+      icon.style.background = glow(id);
+      icon.appendChild(svg);
+      var txt = el('div', 'hh-badge-text');
+      txt.appendChild(el('span', null, app.chip));
+      txt.appendChild(el('span', null, app.name));
+      c.appendChild(icon); c.appendChild(txt);
+      c.addEventListener('click', function () { pickGoal(goalOf(id)); });
+      return c;
+    }
+    function renderChips() {
+      nodes.forEach(function (n) { n.remove(); });
+      nodes = current.idx.map(function (i, k) {
+        var c = chip(HERO_APPS[i], SLOTS[currentSlot][k], k);
+        hero.appendChild(c);
+        return c;
+      });
+    }
+    current = pick(null, -1); currentSlot = current.slot; renderChips();
+    every(5000, function () {
+      var next = pick(current.idx, currentSlot);
+      current = next; currentSlot = next.slot; swaps++; renderChips();
     });
   }
-  var first = pick(null, -1); current = first; currentSlot = first.slot; renderBadges();
-  hero.addEventListener('mouseenter', function () {
-    var next = pick(current.idx, currentSlot);
-    current = next; currentSlot = next.slot; swaps++; renderBadges();
-  });
 
   /* Replay the heart build-in when the hero scrolls back into view */
   if (!reduce && 'IntersectionObserver' in window) {
-    var inView = true;
     new IntersectionObserver(function (entries) {
       entries.forEach(function (e) {
-        if (e.isIntersecting === inView) return;
-        inView = e.isIntersecting;
-        if (inView) { void hero.offsetWidth; hero.classList.add('hh-in'); }
+        if (e.isIntersecting === heroVisible) return;
+        heroVisible = e.isIntersecting;
+        if (heroVisible) { void hero.offsetWidth; hero.classList.add('hh-in'); }
         else { hero.classList.remove('hh-in'); }
       });
     }, { threshold: 0.2 }).observe(hero);
