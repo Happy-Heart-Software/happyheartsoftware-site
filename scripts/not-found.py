@@ -1,6 +1,6 @@
 """Build 404.html from privacy.html's header and footer.
 
-GitHub Pages serves 404.html for any address that doesn't exist, at any depth,
+Cloudflare serves 404.html for any address that doesn't exist, at any depth,
 so every link on it must start with a slash. Run: python3 scripts/not-found.py
 """
 import re

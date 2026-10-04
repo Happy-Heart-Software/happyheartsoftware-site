@@ -1,0 +1,15 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "happyheartsoftware-site",
+  "compatibility_date": "2026-10-04",
+  // A static site: no Worker script, just the files in this folder.
+  // .assetsignore keeps scripts and repo files from being served.
+  "assets": {
+    "directory": ".",
+    // /privacy/quire serves privacy/quire.html, like GitHub Pages did.
+    "html_handling": "auto-trailing-slash",
+    "not_found_handling": "404-page"
+  },
+  "workers_dev": true,
+  "preview_urls": true
+}
