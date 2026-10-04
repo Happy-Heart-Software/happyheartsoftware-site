@@ -9,3 +9,4 @@ CNAME
 wrangler.jsonc
 scripts
 node_modules
+worker
