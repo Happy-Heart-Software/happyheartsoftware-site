@@ -1,6 +1,7 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "happyheartsoftware-site",
+  "account_id": "3ab6348ae1744ace627004edc174a179",
   "compatibility_date": "2026-10-04",
   // A static site. The Worker only redirects www to the bare domain;
   // .assetsignore keeps scripts and repo files from being served.
@@ -19,5 +20,8 @@
     { "pattern": "www.happyheartsoftware.com", "custom_domain": true }
   ],
   "workers_dev": true,
-  "preview_urls": true
+  "preview_urls": true,
+  // Every non-main branch gets a Worker Preview (Workers Builds runs `npx wrangler preview`).
+  // Empty because the site has no variables or storage; assets come from the top level.
+  "previews": {}
 }
