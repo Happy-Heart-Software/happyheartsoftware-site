@@ -92,6 +92,8 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .hh-btn:hover{background:#3A2A6E;border-color:#3A2A6E;color:#FFFFFF}
 .hh-btn2{color:#150A2E;border:2px solid rgba(21,10,46,0.5)}
 .hh-btn2:hover{color:#150A2E;border-color:#150A2E;background:rgba(255,255,255,0.6)}
+/* Once the cards stack, the panel opens under the picked tile's row (see placePanel) */
+.hh-goals>#hh-panel{grid-column:1/-1}
 .hh-morph .hh-px{transition:translate .9s cubic-bezier(.6,0,.2,1),fill .9s ease,scale .5s ease,opacity .5s ease;transition-delay:calc(var(--d) * 5ms)}
 .hh-cap{position:absolute;left:50%;bottom:46px;transform:translate(-50%,8px);padding:10px 18px;border-radius:999px;background:rgba(28,22,58,0.92);border:1px solid rgba(255,255,255,0.18);color:#FFFFFF;font-size:15px;font-weight:700;text-decoration:none;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .4s ease,transform .4s ease}
 .hh-cap.hh-cap-on{opacity:1;transform:translate(-50%,0);pointer-events:auto}
@@ -110,7 +112,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   #hh-panel{padding:28px!important}
   .hh-goals{grid-template-columns:repeat(2,minmax(0,1fr))}
   #hh-steps{flex-direction:column!important}
-  .hh-step{max-width:none}
+  .hh-step{max-width:none;flex:none}
   #why{margin:56px 16px 0!important;padding:36px 22px!important}
   #apps{margin:56px 16px 0!important}
   #about{flex-direction:column!important;align-items:stretch!important;margin:56px 16px 0!important;padding:36px 22px!important;gap:32px!important}
@@ -712,7 +714,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
     });
   }
   function goalOf(id) { return GOALS.filter(function (g) { return g.apps.indexOf(id) !== -1; })[0]; }
-  function pickGoal(g) { picked = g ? g.id : null; showGoal(g); }
+  function pickGoal(g) { picked = g ? g.id : null; showGoal(g); placePanel(); }
   buttons.forEach(function (b) {
     b.addEventListener('click', function () {
       var id = b.getAttribute('data-goal');
@@ -720,6 +722,24 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
       if (picked) panel.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'nearest' });
     });
   });
+
+  /* Once the cards stack, the panel opens right after the picked tile's row, so the other goals
+     stay within reach above and below it */
+  var stacked = window.matchMedia('(max-width: 1100px)');
+  var home = panel.parentNode, homeNext = panel.nextSibling;
+  function placePanel() {
+    var b = picked && document.querySelector('.hh-goal[aria-pressed="true"]');
+    if (!stacked.matches || !b) {
+      if (panel.parentNode !== home) home.insertBefore(panel, homeNext);
+      return;
+    }
+    var cols = getComputedStyle(b.parentNode).gridTemplateColumns.split(' ').length;
+    var i = buttons.indexOf(b);
+    buttons[Math.min(buttons.length - 1, Math.floor(i / cols) * cols + cols - 1)].after(panel);
+  }
+  stacked.addEventListener('change', placePanel);
+  /* the tiles go from two columns to one */
+  window.matchMedia('(max-width: 560px)').addEventListener('change', placePanel);
 
   /* Hero: the heart's voxels rearrange into each app's pixel picture in turn, then back into the heart */
   var heroVisible = true, paused = false;
