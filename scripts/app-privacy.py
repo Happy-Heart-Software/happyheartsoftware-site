@@ -10,7 +10,7 @@ from html import escape
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
-EFFECTIVE = 'October 2, 2026'
+EFFECTIVE = 'October 10, 2026'
 CONTACT = '<a href="mailto:contact@happyheartsoftware.com">contact@happyheartsoftware.com</a>'
 
 # Every app's policy, as (name, URL served by the app).
@@ -24,6 +24,7 @@ APPS = [
     ('Oneira', 'https://oneira.happyheartsoftware.com/privacy'),
     ('Pubstar', 'https://pubstar.happyheartsoftware.com/privacy'),
     ('Quire', 'https://quire.happyheartsoftware.com/privacy'),
+    ('Sparkfield', 'https://sparkfield.happyheartsoftware.com/privacy'),
     ('Wellness & Recovery', 'https://recovery.happyheartsoftware.com/privacy'),
 ]
 
