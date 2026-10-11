@@ -47,6 +47,10 @@ APPS = [
          privacy='https://pubstar.happyheartsoftware.com/privacy', works='Web and Android',
          what='A private portal where our publishing studio and its creators share where each published work is available, while the studio handles marketing and distribution.',
          who=['Writers, artists and makers who publish with the Pubstar studio', 'Creators who want one clear view of where their work is sold']),
+    dict(name='Sparkfield', tagline='Quick brainstorming', area='Create', status='live',
+         url='https://sparkfield.happyheartsoftware.com', privacy='https://sparkfield.happyheartsoftware.com/privacy', works='Web',
+         what='Quick, steerable brainstorming. Type what you need ideas for, and Sparkfield suggests a handful of short ideas and three ways to score them. Like or pass on ideas, add your own, and each new round follows your lead. Your brainstorms stay in your browser. Ideas come from AI with Sparkfield Plus, $4.99 a month.',
+         who=['Anyone naming something, planning, or deciding what to try next', 'Writers and makers looking for a starting point', 'People who want quick ideas without a long chat']),
     dict(name='Fitness & Gains', tagline='Food, training & wellness', area='Wellness', status='live',
          url='https://fitness.happyheartsoftware.com', android='https://fitness.happyheartsoftware.com/downloads/FitnessAndGains.apk',
          privacy='https://fitness.happyheartsoftware.com/privacy', works='Web and Android',
@@ -95,7 +99,7 @@ CATEGORY = {
 
 SITE = 'https://happyheartsoftware.com'
 TITLE = 'All our apps'
-DESCRIPTION = ('Every Happy Heart Software app: budgeting, book formatting, publishing, fitness, '
+DESCRIPTION = ('Every Happy Heart Software app: budgeting, brainstorming, book formatting, publishing, fitness, '
                'wellness, dream journaling, flashcard study, travel logs, word puzzles and website forms. '
                'What each one does, who it helps and where it works.')
 
